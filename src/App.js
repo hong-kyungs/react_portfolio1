@@ -14,6 +14,7 @@ import Gallery from './components/sub/Gallery';
 import Community from './components/sub/Community';
 import Location from './components/sub/Location';
 import Members from './components/sub/Members';
+import Login from './components/sub/Login';
 
 import './scss/style.scss';
 
@@ -38,6 +39,8 @@ function App() {
 			<Route path='/location' component={Location} />
 
 			<Route path='/members' component={Members} />
+
+			<Route path='/login' component={Login} />
 
 			<Footer />
 		</>
