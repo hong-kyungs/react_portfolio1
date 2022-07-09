@@ -4,45 +4,55 @@ import {
 	faUser,
 	faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
+	const active = { color: 'lightpink' };
 	return (
-		<header>
+		<header className={props.type}>
 			<div className='inner'>
 				<h1>
-					<a href='#'>
+					<NavLink exact to='/' className='a'>
 						<img src={'img/logoWhite.png'} alt='' />
-					</a>
+					</NavLink>
 				</h1>
 				<ul id='gnb'>
 					<li>
-						<a href='#'>Department</a>
+						<NavLink to='/department' activeStyle={active}>
+							Department
+						</NavLink>
 					</li>
 					<li>
-						<a href='#'>Gallery</a>
+						<NavLink to='/gallery' activeStyle={active}>
+							Gallery
+						</NavLink>
 					</li>
 					<li>
-						<a href='#'>Youtube</a>
+						<NavLink to='/youtube' activeStyle={active}>
+							Youtube
+						</NavLink>
 					</li>
 					<li>
-						<a href='#'>Community</a>
+						<NavLink to='/community' activeStyle={active}>
+							Community
+						</NavLink>
 					</li>
 				</ul>
 				<ul id='util'>
 					<li>
-						<a href='#'>
+						<NavLink to='/login'>
 							<FontAwesomeIcon icon={faArrowRightToBracket} className='i' />
-						</a>
+						</NavLink>
 					</li>
 					<li>
-						<a href='#'>
+						<NavLink to='/members'>
 							<FontAwesomeIcon icon={faUser} className='i' />
-						</a>
+						</NavLink>
 					</li>
 					<li>
-						<a href='#'>
+						<NavLink to='/location'>
 							<FontAwesomeIcon icon={faLocationDot} className='i' />
-						</a>
+						</NavLink>
 					</li>
 				</ul>
 			</div>
