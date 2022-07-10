@@ -4,15 +4,23 @@
     height: 300px;
     background: #bbb;
   }
-  .inner {
+  > .inner {
     width: 1180px;
     min-height: 400px;
     margin: 100px auto 150px;
     position: relative;
     h1 {
-      font: normal 30px/1 'noto sans';
-      color: #777;
-      margin-bottom: 50px;
+      font: normal 60px/1 'noto sans';
+      color: #111;
+      margin-bottom: 70px;
+      &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 1px;
+        background: #555;
+        margin-top: 20px;
+      }
     }
   }
 }
@@ -22,7 +30,7 @@
     figure {
       height: 200px;
     }
-    .inner {
+    > .inner {
       width: 100%;
       margin: 80px auto 120px;
       padding: 0 40px;
