@@ -1,13 +1,10 @@
-import React from 'react';
+import Layout from '../common/Layout';
 
 function Login() {
 	return (
-		<section className='content login'>
-			<figure></figure>
-			<div className='inner'>
-				<h1>LOGIN</h1>
-			</div>
-		</section>
+		<Layout name={'Login'}>
+			<p>Login contents</p>
+		</Layout>
 	);
 }
 

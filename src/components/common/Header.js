@@ -3,6 +3,7 @@ import {
 	faArrowRightToBracket,
 	faUser,
 	faLocationDot,
+	faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ function Header(props) {
 			<div className='inner'>
 				<h1>
 					<NavLink exact to='/' className='a'>
-						<img src={'img/logoWhite.png'} alt='' />
+						<img src={'img/whiteLogo.png'} alt='' />
 					</NavLink>
 				</h1>
 				<ul id='gnb'>
@@ -55,6 +56,7 @@ function Header(props) {
 						</NavLink>
 					</li>
 				</ul>
+				<FontAwesomeIcon icon={faBars} />
 			</div>
 		</header>
 	);
