@@ -1,86 +1,182 @@
 .Department {
   > .inner {
+    h1 {
+      display: none;
+    }
     &::after {
       content: '';
       display: block;
       clear: both;
     }
-    > p {
-      font: 15px/1 'roboto';
-      color: #878787;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    > h2 {
-      font: 75px/1 'Playfair Display';
-      color: #000;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 70px;
-    }
-    article {
-      width: 33.3333%;
-      float: left;
-      padding: 10px;
-      margin-bottom: 100px;
-      > .inner {
+    .intro_container {
+      width: 100%;
+      background: #fef7f4;
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        left: -20%;
+        background: #fef7f4;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        top: 0;
+        right: -20%;
+        background: #fef7f4;
+      }
+      .wrap {
         width: 100%;
-        position: relative;
         display: flex;
-        > .pic {
-          width: 90%;
-          height: 300px;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            margin-left: 10%;
+        position: relative;
+        .item {
+          width: 33.33333%;
+          padding: 150px 50px 100px 0;
+          position: relative;
+          span {
+            color: #fc8276;
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            transform: translateY(-60%);
+            font: 200px/1 'playfair display';
+            letter-spacing: 2px;
+            opacity: 0.1;
           }
-        }
-        > .txt {
-          position: absolute;
-          bottom: 0;
-          left: 20px;
-          display: flex;
-          transform-origin: bottom left;
-          transform: rotate(-90deg);
-          h3 {
-            font: 22px/1 'Playfair Display';
+          > h3 {
+            font: 22px/1 'playfair display';
+            letter-spacing: 1.1px;
             font-weight: 700;
             color: #000;
-            display: inline-block;
-            padding-right: 10px;
-          }
-          > p {
-            font: 14px/1 'roboto';
-            color: #878787;
-            display: inline-block;
-            padding-left: 20px;
-            padding-top: 8px;
+            margin-bottom: 50px;
             position: relative;
             &::before {
-              content: '/';
+              content: '+';
               display: block;
               position: absolute;
-              left: 5px;
+              bottom: 40px;
+              width: 50px;
+              height: 50px;
+              line-height: 50px;
+              text-align: center;
+              background: #fff;
+              border-radius: 50%;
+              box-shadow: 0 0 15px 5px rgba(252, 130, 118, 0.1);
+            }
+            &:hover {
+              color: #fc8276;
+              cursor: pointer;
+            }
+          }
+          p {
+            width: 70%;
+            float: right;
+            letter-spacing: 1.2px;
+            font: 14px/1.8 'roboto';
+            color: #878787;
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              width: 20%;
+              height: 1.5px;
+              background: #000;
+              left: 0;
             }
           }
         }
-        > .sns {
+      }
+    }
+    .member_intro {
+      margin-top: 150px;
+      > p {
+        font: 15px/1 'roboto';
+        color: #878787;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      > h2 {
+        font: 75px/1 'Playfair Display';
+        color: #000;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 70px;
+      }
+      article {
+        width: 33.3333%;
+        float: left;
+        padding: 10px;
+        margin-bottom: 100px;
+        > .inner {
           width: 100%;
-          position: absolute;
-          bottom: -40px;
-          left: 13%;
-          > a {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            margin-right: 20px;
-            .i {
-              color: #b2b2b2;
+          position: relative;
+          display: flex;
+          > .pic {
+            width: 90%;
+            height: 300px;
+            filter: saturate(0.2);
+            transition: 0.5s;
+            &:hover {
+              filter: saturate(1.1);
             }
-            &:hover .i {
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              margin-left: 10%;
+            }
+          }
+          > .txt {
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            display: flex;
+            transform-origin: bottom left;
+            transform: rotate(-90deg);
+            h3 {
+              font: 22px/1 'Playfair Display';
+              font-weight: 700;
               color: #000;
+              display: inline-block;
+              padding-right: 10px;
+            }
+            > p {
+              font: 14px/1 'roboto';
+              color: #878787;
+              display: inline-block;
+              padding-left: 20px;
+              padding-top: 8px;
+              position: relative;
+              &::before {
+                content: '/';
+                display: block;
+                position: absolute;
+                left: 5px;
+              }
+            }
+          }
+          > .sns {
+            width: 100%;
+            position: absolute;
+            bottom: -40px;
+            left: 13%;
+            > a {
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+              margin-right: 20px;
+              .i {
+                color: #b2b2b2;
+              }
+              &:hover .i {
+                color: #000;
+              }
             }
           }
         }
