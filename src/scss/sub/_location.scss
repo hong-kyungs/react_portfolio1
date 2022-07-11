@@ -2,4 +2,22 @@
   figure {
     background: rgb(195, 254, 195);
   }
+  #map {
+    width: 100%;
+    height: 500px;
+    background: #000;
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    li {
+      flex: 1;
+      border: 1px solid #888;
+      margin-bottom: 50px;
+      background: lightpink;
+      &.on {
+        background: lightseagreen;
+      }
+    }
+  }
 }

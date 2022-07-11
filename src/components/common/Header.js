@@ -14,7 +14,7 @@ function Header(props) {
 			<div className='inner'>
 				<h1>
 					<NavLink exact to='/' className='a'>
-						<img src={'img/whiteLogo.png'} alt='' />
+						<img src={`${process.env.PUBLIC_URL}/img/whiteLogo.png`} alt='' />
 					</NavLink>
 				</h1>
 				<ul id='gnb'>
