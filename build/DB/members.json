@@ -1,0 +1,34 @@
+{
+  "members": [
+    {
+      "name": "Mary Hart",
+      "position": "CEO",
+      "pic": "member1.jpeg"
+    },
+    {
+      "name": "Joe Olson",
+      "position": "CFO",
+      "pic": "member2.jpeg"
+    },
+    {
+      "name": "Ann Brook",
+      "position": "HR Manager",
+      "pic": "member3.jpeg"
+    },
+    {
+      "name": "Ashley Miller",
+      "position": "Marketing Manager",
+      "pic": "member4.jpeg"
+    },
+    {
+      "name": "Nick Forest",
+      "position": "Product Manager",
+      "pic": "member5.jpeg"
+    },
+    {
+      "name": "Melody Clark",
+      "position": "Sales Manager",
+      "pic": "member6.jpeg"
+    }
+  ]
+}
