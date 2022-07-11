@@ -1,5 +1,11 @@
 import Layout from '../common/Layout';
 import { useEffect, useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faFacebookF,
+	faTwitter,
+	faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 
 function Location() {
 	const { kakao } = window;
@@ -10,6 +16,10 @@ function Location() {
 			imgUrl: `${process.env.PUBLIC_URL}/img/marker.svg`,
 			imgSize: new kakao.maps.Size(50, 50),
 			imgPos: { offset: new kakao.maps.Point(25, 50) },
+			address:
+				'Bang & Olufsen 2F, Shinsegae Dept. Store Starfield Hanam, 750, Misa-daero',
+			phone: '+82 31-8072-1517',
+			email: 'infoSE@bangolufsen.com',
 		},
 		{
 			title: 'Seoul',
@@ -17,6 +27,10 @@ function Location() {
 			imgUrl: `${process.env.PUBLIC_URL}/img/marker.svg`,
 			imgSize: new kakao.maps.Size(50, 50),
 			imgPos: { offset: new kakao.maps.Point(20, 40) },
+			address:
+				'Galleria Department Store East 4F, 343 Apgujeong-ro, Gangnam-gu, Seoul',
+			phone: '+82 2-545-1380',
+			email: 'infoSE@bangolufsen.com',
 		},
 		{
 			title: 'Busan',
@@ -24,6 +38,10 @@ function Location() {
 			imgUrl: `${process.env.PUBLIC_URL}/img/marker.svg`,
 			imgSize: new kakao.maps.Size(50, 50),
 			imgPos: { offset: new kakao.maps.Point(20, 40) },
+			address:
+				'Bang & Olufsen 5F, Shinsegae Dept. Store Centumcity, 35, Centum nam-daero',
+			phone: '+82 51-745-1517',
+			email: 'infoBU@bangolufsen.com',
 		},
 	];
 	const container = useRef(null);
@@ -79,13 +97,29 @@ function Location() {
 
 	return (
 		<Layout name={'Location'}>
+			<div className='location_intro'>
+				<span>Contact from</span>
+				<h2>GET TO US</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex aperiam,
+					nobis ipsam distinctio dolor, autem ducimus accusantium placeat
+					laboriosam perspiciatis, reprehenderit numquam dolores enim optio
+					praesentium assumenda! Totam voluptatem officiis eveniet possimus
+					aspernatur cumque similique! Illum iure repellat libero ipsam.
+				</p>
+			</div>
 			<ul id='branch'>
 				{Info.map((info, idx) => {
 					let on = '';
 					Index === idx ? (on = 'on') : (on = '');
 					return (
 						<li key={idx} onClick={() => setIndex(idx)} className={on}>
-							{info.title}
+							<div className='branch_info'>
+								<h3>{info.title}</h3>
+								<div className='address'>{info.address}</div>
+								<div className='phone'>{info.phone}</div>
+								<div className='email'>{info.email}</div>
+							</div>
 						</li>
 					);
 				})}
@@ -94,6 +128,36 @@ function Location() {
 			<button onClick={() => setTraffic(!Traffic)}>
 				{Traffic ? 'Traffic OFF' : 'Traffic ON'}
 			</button>
+			<ul id='contact_info'>
+				<li>
+					<span>Get in touch</span>
+					<h2>CONTACT</h2>
+					<div>Message</div>
+					<div>name</div>
+					<div>email</div>
+					<button>submit</button>
+				</li>
+				<li>
+					<span>Discover more</span>
+					<h2>RESERVATIONS</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+						doloremque quisquam accusamus odit nisi odio, saepe ex sit
+						dignissimos. Quis!
+					</p>
+					<div className='sns'>
+						<a href='#'>
+							<FontAwesomeIcon icon={faFacebookF} className='i' />
+						</a>
+						<a href='#'>
+							<FontAwesomeIcon icon={faTwitter} className='i' />
+						</a>
+						<a href='#'>
+							<FontAwesomeIcon icon={faInstagram} className='i' />
+						</a>
+					</div>
+				</li>
+			</ul>
 		</Layout>
 	);
 }
