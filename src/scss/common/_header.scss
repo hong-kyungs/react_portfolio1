@@ -65,7 +65,7 @@ header {
   }
 
   &.sub {
-    background: #efefef;
+    background: #ffffff;
     .inner {
       min-height: 80px;
       #gnb {
@@ -80,6 +80,9 @@ header {
           a {
             .i {
               color: #000;
+            }
+            &.active .i {
+              color: #fc8276;
             }
           }
         }

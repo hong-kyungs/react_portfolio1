@@ -132,19 +132,29 @@ function Location() {
 				<li>
 					<span>Get in touch</span>
 					<h2>CONTACT</h2>
-					<div>Message</div>
-					<div>name</div>
-					<div>email</div>
-					<button>submit</button>
+					<form>
+						<textarea
+							name='comments'
+							id='comments'
+							placeholder='Message'
+							cols='30'
+							rows='1'></textarea>
+						<input type='text' name='name' placeholder='name' />
+						<input type='text' name='email' placeholder='E-mail' />
+						<input type='submit' value='Submit' />
+					</form>
 				</li>
 				<li>
 					<span>Discover more</span>
 					<h2>RESERVATIONS</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-						doloremque quisquam accusamus odit nisi odio, saepe ex sit
-						dignissimos. Quis!
-					</p>
+					<div className='reserve_info'>
+						<div className='address'>
+							Bang & Olufsen 2F, Shinsegae Dept. Store Starfield Hanam, 750,
+							Misa-daero
+						</div>
+						<div className='phone'>+82 31-8072-1517</div>
+						<div className='email'>infoSE@bangolufsen.com</div>
+					</div>
 					<div className='sns'>
 						<a href='#'>
 							<FontAwesomeIcon icon={faFacebookF} className='i' />

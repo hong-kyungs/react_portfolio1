@@ -1,0 +1,30 @@
+.pop {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 5vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  .con {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #555;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .close {
+    font: bold 16px/1 'noto sans';
+    font-weight: 400;
+    color: lightpink;
+    position: absolute;
+    top: 40px;
+    right: 5vw;
+    cursor: pointer;
+  }
+}

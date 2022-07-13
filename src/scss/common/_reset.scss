@@ -15,3 +15,11 @@ a {
 body {
   background: #ffffff;
 }
+fieldset {
+  border: none;
+}
+.h {
+  position: absolute;
+  top: -999999px;
+  opacity: 0;
+}

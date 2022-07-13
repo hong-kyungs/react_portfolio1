@@ -2,4 +2,79 @@
   figure {
     background: rgb(255, 164, 255);
   }
+  #login {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    form {
+      width: 48%;
+      position: relative;
+      fieldset {
+        width: 90%;
+        position: relative;
+        margin-bottom: 20px;
+      }
+      .field {
+        position: relative;
+
+        label {
+          color: #555;
+          font: 18px/30px 'noto sans';
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding: 0 5px;
+          transition: 0.2s;
+        }
+        > input {
+          font-size: 16px;
+          display: block;
+          width: 100%;
+          height: 30px;
+          padding: 0 5px;
+          color: #555;
+          border: 0;
+          border-bottom: 1px solid #ccc;
+          outline: none;
+          &:focus ~ label,
+          &:not(:placeholder-shown) ~ label {
+            top: -30px;
+            font-size: 18px;
+          }
+          &:focus {
+            border-bottom: 1px solid #555;
+          }
+        }
+        .err {
+          font: 12px/1 'roboto';
+          color: hotpink;
+          margin-bottom: 10px;
+        }
+      }
+      .btnset {
+        width: 100%;
+        padding: 15px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > input {
+          border: 1px solid #aaa;
+          width: 150px;
+          height: 30px;
+          margin: 0 10px;
+        }
+      }
+    }
+
+    .login_Img {
+      width: 48%;
+      height: 800px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }
