@@ -52,6 +52,7 @@
     }
     p {
       font: bold 14px/1.5 'roboto';
+      font-weight: 100;
       text-align: center;
       padding: 0 25%;
       margin-bottom: 50px;
@@ -91,6 +92,7 @@
         }
         > div {
           font: bold 14px/1.4 'roboto';
+          font-weight: 100;
           color: #222;
           margin-bottom: 15px;
         }
@@ -107,6 +109,7 @@
     border: 1px soild #888;
     padding: 5px 20px;
     font: bold 14px/1 'roboto';
+    font-weight: 100;
   }
 
   #contact_info {
@@ -177,6 +180,7 @@
       .reserve_info {
         width: 80%;
         font: bold 14px/1.5 'roboto';
+        font-weight: 100;
         color: #383838;
         margin-top: 50px;
         > div {
