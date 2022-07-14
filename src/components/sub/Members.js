@@ -1,7 +1,9 @@
 import Layout from '../common/Layout';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Members() {
+	const history = useHistory();
 	const initVal = {
 		userid: '',
 		pwd1: '',
@@ -14,6 +16,8 @@ function Members() {
 	const [Val, setVal] = useState(initVal);
 
 	const [Err, setErr] = useState({});
+
+	const [Submit, setSubmit] = useState(false);
 
 	const check = (value) => {
 		const errs = {};
@@ -36,7 +40,7 @@ function Members() {
 		if (value.pwd1 !== value.pwd2 || value.pwd2 < 5) {
 			errs.pwd2 = 'The confirm password does not match with the password.';
 		}
-		if (value.email.length < 8 || !/@/.text(value.email)) {
+		if (value.email.length < 8 || !/@/.text(Val.email)) {
 			errs.email = 'Please enter at least 8 characters long including @.';
 		}
 		if (!Val.gender) {
@@ -44,6 +48,9 @@ function Members() {
 		}
 		if (!Val.preference) {
 			errs.preference = 'Please choose your preference.';
+		}
+		if (Val.store === '') {
+			errs.store = 'please choose the nearest store';
 		}
 		return errs;
 	};
@@ -70,9 +77,24 @@ function Members() {
 		});
 		setVal({ ...Val, [name]: isCheck });
 	};
-	const handleSelect = () => {};
+	const handleSelect = (e) => {
+		const { name } = e.target;
+		const isSelected = e.target.value;
+		// console.log(isSelected);
+		setVal({ ...Val, [name]: isSelected });
+	};
+	const handleReset = () => {
+		setSubmit(false);
+		setErr({});
+		setVal(initVal);
+	};
 
 	useEffect(() => {
+		const len = Object.keys(Err).length;
+		if (len === 0 && Submit) {
+			alert('Thank you for signing up.');
+			history.push('/');
+		}
 		console.log(Err);
 	}, [Err]);
 
@@ -195,13 +217,17 @@ function Members() {
 									<option value='seuol'>Seoul</option>
 									<option value='busan'>Busan</option>
 								</select>
-								<span className='err'>{Err.store}</span>
 							</div>
+							<span className='err'>{Err.store}</span>
 						</div>
 
 						<div className='btnset'>
-							<input type='reset' value='CANCEL' />
-							<input type='submit' value='SEND' />
+							<input type='reset' value='CANCEL' onClick={handleReset} />
+							<input
+								type='submit'
+								value='SEND'
+								onClick={() => setSubmit(true)}
+							/>
 						</div>
 					</fieldset>
 				</form>
