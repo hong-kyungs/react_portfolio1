@@ -88,12 +88,66 @@ function Location() {
 			// console.log('location 컴포넌트에 리사이즈 이벤트 발생!');
 			map_instance.setCenter(Info[Index].latlng);
 		};
+		const mapTypeControl = new kakao.maps.MapTypeControl();
+		map_instance.addControl(
+			mapTypeControl,
+			kakao.maps.ControlPosition.TOPRIGHT
+		);
+		const zoomControl = new kakao.maps.ZoomControl();
+		map_instance.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
 		window.addEventListener('resize', handleResize);
 
 		return () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, [Index]);
+
+	const initVal = {
+		username: '',
+		email: '',
+	};
+
+	const [Val, setVal] = useState(initVal);
+	const [Err, setErr] = useState([]);
+	const [Submit, setSubmit] = useState(false);
+	const input = useRef(null);
+	const input2 = useRef(null);
+	const textarea = useRef(null);
+
+	const check = (value) => {
+		const errs = {};
+		if (value.username.length < 1) {
+			errs.username = 'This field is required.';
+		}
+		if (value.email.length < 5 || !/@/.test(Val.email)) {
+			errs.email = 'The email address entered is invalid.';
+		}
+		return errs;
+	};
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setVal({ ...Val, [name]: value });
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setErr(check(Val));
+	};
+
+	const resetForm = () => {
+		input.current.value = '';
+		input2.current.value = '';
+		textarea.current.value = '';
+	};
+	useEffect(() => {
+		const len = Object.keys(Err).length;
+		if (len === 0 && Submit) {
+			resetForm();
+			alert('Thank you for your message. It has been sent.');
+		}
+	}, [Err]);
 
 	return (
 		<Layout name={'Location'}>
@@ -132,16 +186,41 @@ function Location() {
 				<li>
 					<span>Get in touch</span>
 					<h2>CONTACT</h2>
-					<form>
+					<form onSubmit={handleSubmit}>
 						<textarea
 							name='comments'
 							id='comments'
 							placeholder='Message'
 							cols='30'
-							rows='1'></textarea>
-						<input type='text' name='name' placeholder='name' />
-						<input type='text' name='email' placeholder='E-mail' />
-						<input type='submit' value='Submit' />
+							rows='1'
+							ref={textarea}></textarea>
+						<div className='info'>
+							<input
+								type='text'
+								name='username'
+								placeholder='name'
+								value={Val.username}
+								onChange={handleChange}
+								ref={input}
+							/>
+							<span className='err'>{Err.username}</span>
+						</div>
+						<div className='info'>
+							<input
+								type='text'
+								name='email'
+								placeholder='E-mail'
+								value={Val.email}
+								onChange={handleChange}
+								ref={input2}
+							/>
+							<span className='err'>{Err.email}</span>
+						</div>
+						<input
+							type='submit'
+							value='Submit'
+							onClick={() => setSubmit(true)}
+						/>
 					</form>
 				</li>
 				<li>

@@ -148,14 +148,24 @@
         input:focus {
           outline: none;
         }
-        input[type='text'] {
+        .info {
           width: 48%;
-          border: none;
-          border-bottom: 1px solid #383838;
-          padding: 20px 0 10px 10px;
-          font: 14px/1 'playfair display';
-          font-style: italic;
-          margin-bottom: 50px;
+          input[type='text'] {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #383838;
+            padding: 20px 0 10px 10px;
+            font: 14px/1 'playfair display';
+            font-style: italic;
+            margin-bottom: 10px;
+          }
+          > span {
+            width: 100%;
+            font: 14px/1 'playfair display';
+            color: #29b6f6;
+            font-style: italic;
+            margin-bottom: 40px;
+          }
         }
         input[type='submit'] {
           background: none;
