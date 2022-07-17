@@ -40,7 +40,7 @@ function Members() {
 		if (value.pwd1 !== value.pwd2 || value.pwd2 < 5) {
 			errs.pwd2 = 'The confirm password does not match with the password.';
 		}
-		if (value.email.length < 8 || !/@/.text(Val.email)) {
+		if (value.email.length < 8 || !/@/.test(Val.email)) {
 			errs.email = 'Please enter at least 8 characters long including @.';
 		}
 		if (!Val.gender) {

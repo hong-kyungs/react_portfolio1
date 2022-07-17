@@ -1,21 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 
-function Popup(props) {
+const Popup = forwardRef((props, ref) => {
+	const [Open, setOpen] = useState(false);
 	useEffect(() => {
-		document.body.style.overflow = 'hidden';
-		return () => {
-			document.body.style.overflow = 'auto';
+		Open
+			? (document.body.style.overflow = 'hidden')
+			: (document.body.style.overflow = 'auto');
+	}, [Open]);
+
+	useImperativeHandle(ref, () => {
+		return {
+			open: () => setOpen(true),
 		};
-	}, []);
+	});
 
 	return (
-		<aside className='pop'>
-			<div className='con'>{props.children}</div>
-			<span className='close' onClick={() => props.setOpen(false)}>
-				close
-			</span>
-		</aside>
+		<>
+			{Open && (
+				<aside className='pop'>
+					<div className='con'>{props.children}</div>
+					<span className='close' onClick={() => setOpen(false)}>
+						close
+					</span>
+				</aside>
+			)}
+		</>
 	);
-}
+});
 
 export default Popup;

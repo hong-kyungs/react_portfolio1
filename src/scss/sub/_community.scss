@@ -5,46 +5,102 @@
   > .inner {
     .inputBox {
       width: 100%;
-      border: 1px solid #222;
-      padding: 50px;
+      height: 60vh;
+      background: #fef0ea;
+      padding: 100px 100px 0px;
+      margin-top: 120px;
       margin-bottom: 50px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        font: 75px/1 'playfair display';
+        font-weight: 700;
+        position: absolute;
+        top: -55px;
+        left: 50px;
+      }
+
       input[type='text'],
       textarea {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #878787;
         width: 50%;
         padding: 8px 10px;
-        border: 1px solid #aaa;
         margin-bottom: 20px;
+        outline: none;
         resize: none;
       }
       .btnSet {
+        width: 390px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
         button {
-          width: 150px;
+          width: 48%;
+
           height: 30px;
           display: inline-block;
           justify-content: center;
           align-items: center;
           border: none;
-          background: #555;
+          background: #878787;
           color: #fff;
           cursor: pointer;
-          margin-right: 20px;
+          // margin-right: 20px;
         }
       }
     }
 
     .showBox {
       width: 100%;
-      border: 1px solid #bbb;
-      padding: 50px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      background: #f8f7f5;
+      > p {
+        width: 100%;
+        text-align: center;
+        font: 30px/1 'playfair display';
+        font-weight: 400;
+        font-style: italic;
+        margin: 100px 0;
+      }
       article {
-        background: #efefef;
-        padding: 30px;
+        width: 380px;
+        margin-right: 20px;
+        height: 300px;
+        padding: 20px;
         margin-bottom: 40px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-content: center;
-
+        border: 1px solid rgba(32, 32, 32, 0.5);
+        border-radius: 10px;
+        position: relative;
+        // display: flex;
+        // flex-wrap: wrap;
+        // align-content: center;
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+        .showBox_inner {
+          .txt {
+            h2 {
+              font: 20px/1 'play';
+              color: #000;
+              letter-spacing: 2px;
+              text-transform: uppercase;
+              text-align: left;
+              margin-bottom: 80px;
+            }
+            p {
+              font: 14px/1.8 'roboto';
+              text-align: center;
+              padding: 0 20px;
+            }
+          }
+        }
         .editTxt {
           width: 60%;
           input[type='text'],
@@ -59,21 +115,55 @@
         }
 
         .btnSet {
+          width: 100%;
           display: flex;
+          justify-content: space-between;
           align-items: center;
+          position: absolute;
+          padding: 0 20px;
+          left: 0;
+          bottom: 20px;
           button {
-            background: transparent;
-            margin: 10px;
-            cursor: pointer;
+            background: #222;
+            width: 49%;
+            height: 30px;
             border: none;
-            &:nth-of-type(1) {
-              color: orange;
-            }
-            &:nth-of-type(2) {
-              color: orangered;
-            }
+            cursor: pointer;
+            border-radius: 5px;
+            font: 12px/30px 'play';
+            color: rgb(248, 247, 245);
           }
         }
+        &:nth-of-type(1) button,
+        &:nth-of-type(5) button,
+        &:nth-of-type(9) button {
+          background: rgb(146, 152, 139);
+        }
+        &:nth-of-type(2) button,
+        &:nth-of-type(6) button,
+        &:nth-of-type(7) button {
+          background: rgb(186, 172, 157);
+        }
+      }
+      &::before {
+        content: '';
+        display: block;
+        width: 30%;
+        height: 100%;
+        background: #f8f7f5;
+        position: absolute;
+        top: 0;
+        left: -10%;
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 30%;
+        height: 100%;
+        background: #f8f7f5;
+        position: absolute;
+        top: 0;
+        right: -30%;
       }
     }
   }

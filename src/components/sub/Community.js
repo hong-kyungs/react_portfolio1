@@ -6,14 +6,39 @@ function Community() {
 	const textarea = useRef(null);
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
+	// const dummyPosts = [
+	// 	{
+	// 		title: 'BANG OLUFSEN6',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+	// 	},
+	// 	{
+	// 		title: 'BANG OLUFSEN5',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
+	// 	},
+	// 	{
+	// 		title: 'BANG OLUFSEN4',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+	// 	},
+	// 	{
+	// 		title: 'BANG OLUFSEN3',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
+	// 	},
+	// 	{
+	// 		title: 'BANG OLUFSEN2',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+	// 	},
+	// 	{
+	// 		title: 'BANG OLUFSEN51',
+	// 		content:
+	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+	// 	},
+	// ];
 	const getLocalData = () => {
-		// const dummyPosts = [
-		// 	{ title: 'HELLO5', content: 'Here comes description in detail.' },
-		// 	{ title: 'HELLO4', content: 'Here comes description in detail.' },
-		// 	{ title: 'HELLO3', content: 'Here comes description in detail.' },
-		// 	{ title: 'HELLO2', content: 'Here comes description in detail.' },
-		// 	{ title: 'HELLO1', content: 'Here comes description in detail.' },
-		// ];
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
 	};
@@ -98,6 +123,7 @@ function Community() {
 	return (
 		<Layout name={'Community'}>
 			<div className='inputBox'>
+				<p>Feel free to contact us anytime!</p>
 				<input type='text' placeholder='제목을 입력하세요' ref={input} />
 				<br />
 
@@ -115,11 +141,12 @@ function Community() {
 			</div>
 
 			<div className='showBox'>
+				<p>reviews</p>
 				{Posts.map((post, idx) => {
 					return (
 						<article key={idx}>
 							{post.enableUpdate ? (
-								<>
+								<div className='showBox_inner'>
 									<div className='editTxt'>
 										<input
 											type='text'
@@ -140,9 +167,9 @@ function Community() {
 										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
 										<button onClick={() => updatePost(idx)}>UPDATE</button>
 									</div>
-								</>
+								</div>
 							) : (
-								<>
+								<div className='showBox_inner'>
 									<div className='txt'>
 										<h2>{post.title}</h2>
 										<p>{post.content}</p>
@@ -151,7 +178,7 @@ function Community() {
 										<button onClick={() => enableUpdate(idx)}>EDIT</button>
 										<button onClick={() => deletePost(idx)}>DELETE</button>
 									</div>
-								</>
+								</div>
 							)}
 						</article>
 					);
