@@ -46,8 +46,18 @@ function Youtube() {
 								<FontAwesomeIcon icon={faYoutube} className='i' />
 							</div>
 							<div className='txt'>
-								<h3>{tit.length > 30 ? tit.substr(0, 30) + '...' : tit}</h3>
-								<p>{desc.length > 150 ? tit.substr(0, 150) + '...' : desc}</p>
+								<h3>
+									{idx !== 0 && tit.length > 30
+										? tit.substr(0, 30) + '...'
+										: tit}
+								</h3>
+								{/* <h3>{tit.length > 30 ? tit.substr(0, 30) + '...' : tit}</h3> */}
+								<p>
+									{idx !== 0 && desc.length > 100
+										? desc.substr(0, 100) + '...'
+										: desc}
+								</p>
+								{/* <p>{desc.length > 150 ? desc.substr(0, 150) + '...' : desc}</p> */}
 								<span>{date.split('T')[0]}</span>
 							</div>
 						</article>
