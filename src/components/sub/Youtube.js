@@ -39,10 +39,17 @@ function Youtube() {
 									pop.current.open();
 									setIndex(idx);
 								}}>
-								<img
-									src={vid.snippet.thumbnails.medium.url}
-									alt={vid.snippet.title}
-								/>
+								{idx === 0 ? (
+									<img
+										src={process.env.PUBLIC_URL + '/img/youtube1.jpg'}
+										alt={vid.snippet.title}
+									/>
+								) : (
+									<img
+										src={vid.snippet.thumbnails.medium.url}
+										alt={vid.snippet.title}
+									/>
+								)}
 								<FontAwesomeIcon icon={faYoutube} className='i' />
 							</div>
 							<div className='txt'>

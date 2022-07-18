@@ -6,41 +6,46 @@ function Community() {
 	const textarea = useRef(null);
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
-	// const dummyPosts = [
-	// 	{
-	// 		title: 'BANG OLUFSEN6',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
-	// 	},
-	// 	{
-	// 		title: 'BANG OLUFSEN5',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
-	// 	},
-	// 	{
-	// 		title: 'BANG OLUFSEN4',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
-	// 	},
-	// 	{
-	// 		title: 'BANG OLUFSEN3',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
-	// 	},
-	// 	{
-	// 		title: 'BANG OLUFSEN2',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
-	// 	},
-	// 	{
-	// 		title: 'BANG OLUFSEN51',
-	// 		content:
-	// 			'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
-	// 	},
-	// ];
+
 	const getLocalData = () => {
+		const dummyPosts = [
+			{
+				title: 'BANG OLUFSEN6',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+			},
+			{
+				title: 'BANG OLUFSEN5',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
+			},
+			{
+				title: 'BANG OLUFSEN4',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+			},
+			{
+				title: 'BANG OLUFSEN3',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
+			},
+			{
+				title: 'BANG OLUFSEN2',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+			},
+			{
+				title: 'BANG OLUFSEN51',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+			},
+		];
 		const data = localStorage.getItem('post');
-		if (data) return JSON.parse(data);
+		if (data) {
+			return JSON.parse(data);
+		} else {
+			return dummyPosts;
+		}
 	};
 	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
@@ -116,7 +121,7 @@ function Community() {
 	};
 
 	useEffect(() => {
-		// console.log(Posts);
+		console.log(Posts);
 		localStorage.setItem('post', JSON.stringify(Posts));
 	}, [Posts]);
 
