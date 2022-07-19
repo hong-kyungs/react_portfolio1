@@ -4,7 +4,7 @@ header {
   z-index: 3;
   .inner {
     width: 1180px;
-    min-height: 400px;
+    min-height: 80vh;
     margin: 0 auto;
     position: relative;
 
@@ -51,7 +51,7 @@ header {
           margin-left: 15px;
           .i {
             font-size: 16px;
-            color: #fff;
+            color: #222;
           }
         }
       }
@@ -70,10 +70,13 @@ header {
     background: #ffffff;
     .inner {
       min-height: 80px;
+      h1 a {
+        color: #222;
+      }
       #gnb {
         left: 10%;
-        a {
-          color: #000;
+        li a {
+          color: #222;
         }
       }
       #util {
@@ -81,7 +84,7 @@ header {
         > li {
           a {
             .i {
-              color: #000;
+              color: #222;
             }
             &.active .i {
               color: #fc8276;
@@ -91,7 +94,29 @@ header {
       }
       .fa-bars {
         top: 40px;
-        color: #000;
+        color: #222;
+      }
+    }
+  }
+
+  &.main {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    .inner {
+      h1 a {
+        color: #fff;
+      }
+      #gnb li a {
+        color: #fff;
+      }
+      #util li a .i {
+        color: #fff;
+      }
+      .fa-bars {
+        color: #fff;
       }
     }
   }
