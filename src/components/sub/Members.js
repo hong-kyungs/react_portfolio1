@@ -233,7 +233,7 @@ function Members() {
 				</form>
 
 				<div className='login_Img'>
-					<img src={process.env.PUBLIC_URL + '/img/login_sub.jpg'} alt='' />
+					<img src={process.env.PUBLIC_URL + '/img/login_sub2.jpg'} alt='' />
 				</div>
 			</div>
 		</Layout>

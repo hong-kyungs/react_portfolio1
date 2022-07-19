@@ -44,3 +44,18 @@
     }
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .content {
+    > .inner {
+      h1 {
+        font: normal 40px/1 'noto sans';
+        font-weight: 100;
+        margin-bottom: 70px;
+      }
+      width: 100%;
+      margin: 80px auto 120px;
+      padding: 0 10px;
+    }
+  }
+}
