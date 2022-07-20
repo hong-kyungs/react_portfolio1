@@ -63,6 +63,7 @@ header {
       top: 50px;
       color: #fff;
       display: none;
+      cursor: pointer;
     }
   }
 
@@ -152,6 +153,7 @@ header {
         }
         #util {
           top: 30px;
+          left: 0;
           > li {
             a {
               .fa-arrow-right-to-bracket,
@@ -166,7 +168,7 @@ header {
         }
         .fa-bars {
           top: 30px;
-          left: 40px;
+          right: 40px;
           color: #000;
         }
       }

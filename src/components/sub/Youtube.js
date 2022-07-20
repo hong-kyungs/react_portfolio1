@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import Popup from '../common/Popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faPoop } from '@fortawesome/free-solid-svg-icons';
 
 function Youtube() {
 	const pop = useRef(null);
