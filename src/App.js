@@ -1,11 +1,14 @@
+import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as types from './redux/actionType';
 //common
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
 //main
-import Visual from './components/main/Visual';
-import Content from './components/main/Content';
+import Main from './components/main/Main';
 
 //sub
 import Department from './components/sub/Department';
@@ -19,19 +22,19 @@ import Login from './components/sub/Login';
 import './scss/style.scss';
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch({ type: types.MEMBERS.start });
+		dispatch({ type: types.YOUTUBE.start });
+	}, []);
+
 	return (
 		<>
 			<Switch>
-				<Route exact path='/'>
-					<Header type={'main'} />
+				<Route exact path='/' component={Main} />
 
-					<Visual />
-					<Content />
-				</Route>
-
-				<Route path='/'>
-					<Header type={'sub'} />
-				</Route>
+				<Route path='/' render={() => <Header type={'sub'} />} />
 			</Switch>
 
 			<Route path='/department' component={Department} />

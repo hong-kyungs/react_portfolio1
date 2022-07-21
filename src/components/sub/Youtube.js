@@ -1,26 +1,27 @@
 import Layout from '../common/Layout';
 import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import Popup from '../common/Popup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function Youtube() {
 	const pop = useRef(null);
-	const [Vids, setVids] = useState([]);
 	const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
+	const Vids = useSelector((store) => store.youtubeReducer.youtube);
 
-	useEffect(() => {
-		const key = 'AIzaSyCVnqQLlCzUMqd8pqBHc34g-onr96Z0TaM';
-		const playlist = 'PL0Rto-Av72qFwaOm3JsjR4hJymVst9V7u';
-		const num = 7;
-		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
-		axios.get(url).then((json) => {
-			// console.log(json.data.items);
-			setVids(json.data.items);
-		});
-	}, []);
+	// useEffect(() => {
+	// 	const key = 'AIzaSyCVnqQLlCzUMqd8pqBHc34g-onr96Z0TaM';
+	// 	const playlist = 'PL0Rto-Av72qFwaOm3JsjR4hJymVst9V7u';
+	// 	const num = 7;
+	// 	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
+	// 	axios.get(url).then((json) => {
+	// 		// console.log(json.data.items);
+	// 		setVids(json.data.items);
+	// 	});
+	// }, []);
 
 	return (
 		<>
