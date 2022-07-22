@@ -1,6 +1,6 @@
 import Layout from '../common/Layout';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faFacebookF,
@@ -11,17 +11,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Department() {
 	const path = process.env.PUBLIC_URL;
-	const [Members, setMembers] = useState([]);
-
-	useEffect(() => {
-		axios.get(`${path}/DB/members.json`).then((json) => {
-			setMembers(json.data.members);
-		});
-	}, []);
-
-	useEffect(() => {
-		console.log(Members);
-	}, [Members]);
+	const members = useSelector((store) => store.members.data);
 
 	return (
 		<Layout name={'Department'}>
@@ -57,7 +47,7 @@ function Department() {
 			<div className='member_intro'>
 				<p>Easy and Simple</p>
 				<h2>Meet the Team</h2>
-				{Members.map((member, idx) => {
+				{members.map((member, idx) => {
 					return (
 						<article key={idx}>
 							<div className='inner'>

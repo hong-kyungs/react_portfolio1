@@ -1,10 +1,13 @@
 import Layout from '../common/Layout';
 import Popup from '../common/Popup';
-import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import Masonry from 'react-masonry-component';
+import { fetchFlickr } from '../../redux/flickrSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Gallery() {
+	const dispatch = useDispatch();
+	const flickr = useSelector((store) => store.flickr.data);
 	const frame = useRef(null);
 	const input = useRef(null);
 	const pop = useRef(null);
@@ -15,38 +18,38 @@ function Gallery() {
 
 	const masonryOptions = { transitionDuration: '0.5s' };
 
-	const getFlickr = async (opt) => {
-		const key = '1410239e47f32f3f403f70fd3c998b38';
-		const method_interest = 'flickr.interestingness.getList';
-		const method_search = 'flickr.photos.search';
-		const method_user = 'flickr.people.getPhotos';
-		const num = 20;
-		let url = '';
-		if (opt.type === 'interest') {
-			url = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
-		}
-		if (opt.type === 'search') {
-			url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
-		}
-		if (opt.type === 'user') {
-			url = `https://www.flickr.com/services/rest/?method=${method_user}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&user_id=${opt.user}`;
-		}
+	// const getFlickr = async (opt) => {
+	// 	const key = '1410239e47f32f3f403f70fd3c998b38';
+	// 	const method_interest = 'flickr.interestingness.getList';
+	// 	const method_search = 'flickr.photos.search';
+	// 	const method_user = 'flickr.people.getPhotos';
+	// 	const num = 20;
+	// 	let url = '';
+	// 	if (opt.type === 'interest') {
+	// 		url = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
+	// 	}
+	// 	if (opt.type === 'search') {
+	// 		url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
+	// 	}
+	// 	if (opt.type === 'user') {
+	// 		url = `https://www.flickr.com/services/rest/?method=${method_user}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&user_id=${opt.user}`;
+	// 	}
 
-		await axios.get(url).then((json) => {
-			console.log(json.data.photos.photo);
-			if (json.data.photos.photo.length === 0)
-				return alert('해당 검색어의 결과 이미지가 없습니다.');
-			setItems(json.data.photos.photo);
-		});
-		setTimeout(() => {
-			setLoading(false);
-			frame.current.classList.add('on');
+	// 	await axios.get(url).then((json) => {
+	// 		console.log(json.data.photos.photo);
+	// 		if (json.data.photos.photo.length === 0)
+	// 			return alert('해당 검색어의 결과 이미지가 없습니다.');
+	// 		setItems(json.data.photos.photo);
+	// 	});
+	// 	setTimeout(() => {
+	// 		setLoading(false);
+	// 		frame.current.classList.add('on');
 
-			setTimeout(() => {
-				setEnableClick(true);
-			}, 500);
-		}, 1000);
-	};
+	// 		setTimeout(() => {
+	// 			setEnableClick(true);
+	// 		}, 500);
+	// 	}, 1000);
+	// };
 
 	const showSearch = () => {
 		const result = input.current.value.trim();
@@ -58,11 +61,11 @@ function Gallery() {
 		setEnableClick(false);
 		setLoading(true);
 		frame.current.classList.remove('on');
-		getFlickr({ type: 'search', tags: result });
+		dispatch(fetchFlickr({ type: 'search', tags: result }));
 	};
 
 	useEffect(() => {
-		getFlickr({ type: 'user', user: '195962412@N06' });
+		dispatch(fetchFlickr({ type: 'user', user: '195962412@N06' }));
 	}, []);
 
 	return (
@@ -82,7 +85,7 @@ function Gallery() {
 								setEnableClick(false);
 								setLoading(true);
 								frame.current.classList.remove('on');
-								getFlickr({ type: 'interest' });
+								dispatch(fetchFlickr({ type: 'interest' }));
 							}}>
 							Interest Gallery
 						</button>
@@ -94,7 +97,7 @@ function Gallery() {
 								setEnableClick(false);
 								setLoading(true);
 								frame.current.classList.remove('on');
-								getFlickr({ type: 'user', user: '195962412@N06' });
+								dispatch(fetchFlickr({ type: 'user', user: '195962412@N06' }));
 							}}>
 							My Gallery
 						</button>
@@ -114,7 +117,7 @@ function Gallery() {
 
 				<div className='frame' ref={frame}>
 					<Masonry elementType={'div'} options={masonryOptions}>
-						{Items.map((item, idx) => {
+						{flickr.map((item, idx) => {
 							return (
 								<article key={idx}>
 									<div className='inner'>
@@ -148,7 +151,12 @@ function Gallery() {
 													setLoading(true);
 													frame.current.classList.remove('on');
 
-													getFlickr({ type: 'user', user: e.target.innerText });
+													dispatch(
+														fetchFlickr({
+															type: 'user',
+															user: e.target.innerText,
+														})
+													);
 												}}>
 												{item.owner}
 											</span>

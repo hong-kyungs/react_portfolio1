@@ -1,0 +1,40 @@
+#vids {
+  width: 100%;
+  height: 100vh;
+  background: #e0f7fa;
+  position: relative;
+  padding: 10vw;
+  h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    font: 30px/1 'noto sans';
+    font-weight: 100;
+    color: #222;
+  }
+  .preview {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .inner {
+      width: 30%;
+      height: 50vh;
+      background: #fff;
+      padding: 20px;
+      .pic {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      h2 {
+        font: 18px/1.5 'noto sans';
+        font-weight: 100;
+        color: #222;
+      }
+    }
+  }
+}
