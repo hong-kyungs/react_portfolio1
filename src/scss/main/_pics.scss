@@ -13,4 +13,17 @@
     font-weight: 100;
     color: #222;
   }
+  .frame {
+    width: 100%;
+
+    article {
+      width: 19%;
+      .pic {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

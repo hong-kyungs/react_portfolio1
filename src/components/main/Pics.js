@@ -46,7 +46,7 @@ function Pics() {
 			<div className='frame' ref={frame}>
 				<Masonry elementType={'div'} options={masonryOptions}>
 					{Items.map((item, idx) => {
-						if (idx >= 3) return;
+						if (idx >= 5) return;
 						return (
 							<article key={idx}>
 								<div className='inner'>
