@@ -12,7 +12,12 @@ $mobile: 539px;
 
 //main
 @import 'main/visual';
-@import 'main/content';
+@import 'main/news';
+@import 'main/ad';
+@import 'main/pics';
+@import 'main/vids';
+@import 'main/reviews';
+@import 'main/btns';
 
 //sub
 @import 'sub/community';

@@ -73,7 +73,7 @@ function Visual() {
 	}, [Index]);
 
 	return (
-		<figure id='visual'>
+		<figure id='visual' className='myScroll'>
 			<ul className='panel' ref={panel}>
 				<li className='on'>
 					<img
