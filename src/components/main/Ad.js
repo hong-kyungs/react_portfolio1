@@ -8,7 +8,7 @@ function Ad() {
 				<video
 					loop
 					muted
-					// autoPlay
+					autoPlay
 					src={process.env.PUBLIC_URL + '/img/main_ad.mp4'}></video>
 			</div>
 		</section>

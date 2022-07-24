@@ -1,9 +1,10 @@
 #news {
   width: 100%;
-  height: 100vh;
+  min-height: 60vh;
   background: #fce4ec;
   position: relative;
-  padding: 10vw;
+  padding: 10vh 10vw;
+
   h1 {
     display: block;
     width: 100%;
@@ -12,5 +13,70 @@
     font: 30px/1 'noto sans';
     font-weight: 100;
     color: #222;
+  }
+
+  article {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    > .member_intro {
+      width: 50%;
+      padding: 5vh 5vw 5vh 10vw;
+      text-align: right;
+      // background: lightblue;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: calc(100% - 10vh);
+        background: #bbb;
+        position: absolute;
+        top: 5vh;
+        right: 0;
+      }
+      h2 {
+        font: 24px/1 'noto sans';
+        font-weight: 400;
+        color: #222;
+        margin-bottom: 5px;
+      }
+      h3 {
+        font: 20px/1 'noto sans';
+        font-weight: 400;
+        color: #222;
+        margin-bottom: 10px;
+      }
+      h4 {
+        font: 14px/1 'noto sans';
+        font-weight: 100;
+        color: #222;
+        margin-bottom: 10px;
+      }
+      p {
+        font: 14px/1.3 'roboto';
+        font-weight: 300;
+        color: #222;
+        margin-bottom: 20px;
+      }
+      a {
+        font: 14px/1 'noto sans';
+        font-weight: 400;
+        color: #222;
+        padding: 5px 10px;
+        border-bottom: 1px solid #222;
+      }
+    }
+    > .pic {
+      width: 50%;
+      padding: 5vh 5vw;
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
   }
 }

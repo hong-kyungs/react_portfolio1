@@ -49,7 +49,7 @@
     let tags = '';
     const baseURL = 'https://hong-kyungs.github.io/react_portfolio1';
     const imgs = [
-      baseURL + '/img/Community.jpg',
+      baseURL + '/img/Department.jpg',
       baseURL + '/img/Gallery.jpg',
       baseURL + '/img/Youtube.jpg',
       baseURL + '/img/Community.jpg',
@@ -65,20 +65,20 @@
 
     createDOM();
 
-    // Promise.all([loadImg(), loadVid()]).then(result => {
-    //   console.log(result);
-    //   const [loadedImg, loadedVid] = result;
+    Promise.all([loadImg(), loadVid()]).then(result => {
+      console.log(result);
+      const [loadedImg, loadedVid] = result;
 
-    //   if (loadedImg && loadedVid) {
-    //     console.log('mask-hide');
-    //     mask.classList.add('off');
+      if (loadedImg && loadedVid) {
+        console.log('mask-hide');
+        mask.classList.add('off');
 
-    //     setTimeout(() => {
-    //       mask.remove();
-    //       defaults.remove();
-    //     }, 2000)
-    //   }
-    // })
+        setTimeout(() => {
+          mask.remove();
+          defaults.remove();
+        }, 2000)
+      }
+    })
 
     function createDOM() {
       imgs.forEach(src => {

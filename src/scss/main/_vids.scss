@@ -1,9 +1,9 @@
 #vids {
   width: 100%;
-  height: 100vh;
+  min-height: 80vh;
   background: #f5f4f3;
   position: relative;
-  padding: 5vw 2vw;
+  padding: 5vh 2vw;
   h1 {
     display: block;
     width: 100%;
@@ -14,22 +14,49 @@
     color: #222;
   }
   .swiper {
-    height: 70vh;
+    width: 100%;
+    height: 60vh;
     padding: 20px 0 30px;
+    // background: lightblue;
     .swiper-slide {
       width: 100%;
       .inner {
         width: 100%;
-        height: 100%;
+        height: 40vh;
         background: #fff;
+        position: relative;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font: 25px/1 'arial';
-        color: #333;
+        flex-wrap: wrap;
+        // justify-content: center;
+        // align-items: center;
+
         opacity: 0.5;
         transform: scale(0.8);
         transition: opacity 0.5 transfrom 0.5;
+        .pic {
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        h2 {
+          margin-top: 10px;
+          padding: 0 20px 0 0;
+          font: 20px/1.5 'noto sans';
+          font-weight: 100;
+          color: #222;
+          &::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #222;
+            margin-top: 10px;
+          }
+        }
       }
       &.swiper-slide-active {
         .inner {
