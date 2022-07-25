@@ -28,7 +28,7 @@ function App() {
 	useEffect(() => {
 		dispatch(fetchMembers());
 		dispatch(fetchYoutube());
-		dispatch(fetchFlickr({ type: 'interest' }));
+		dispatch(fetchFlickr({ type: 'user', user: '195962412@N06' }));
 	}, []);
 
 	return (
