@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 function News() {
 	const members = useSelector((store) => store.members.data);
 	return (
-		<section id='news'>
+		<section id='news' className='myScroll'>
 			<h1>News</h1>
 			{members.map((member, idx) => {
 				if (idx >= 1) return;

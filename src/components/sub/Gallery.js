@@ -11,62 +11,58 @@ function Gallery() {
 	const frame = useRef(null);
 	const input = useRef(null);
 	const pop = useRef(null);
-	const [Items, setItems] = useState([]);
+	const [Opt, setOpt] = useState({ type: 'user', user: '195962412@N06' });
+	// const [Items, setItems] = useState([]);
 	const [Loading, setLoading] = useState(true);
 	const [EnableClick, setEnableClick] = useState(true);
 	const [Index, setIndex] = useState(0);
 
 	const masonryOptions = { transitionDuration: '0.5s' };
 
-	// const getFlickr = async (opt) => {
-	// 	const key = '1410239e47f32f3f403f70fd3c998b38';
-	// 	const method_interest = 'flickr.interestingness.getList';
-	// 	const method_search = 'flickr.photos.search';
-	// 	const method_user = 'flickr.people.getPhotos';
-	// 	const num = 20;
-	// 	let url = '';
-	// 	if (opt.type === 'interest') {
-	// 		url = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
-	// 	}
-	// 	if (opt.type === 'search') {
-	// 		url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
-	// 	}
-	// 	if (opt.type === 'user') {
-	// 		url = `https://www.flickr.com/services/rest/?method=${method_user}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&user_id=${opt.user}`;
-	// 	}
-
-	// 	await axios.get(url).then((json) => {
-	// 		console.log(json.data.photos.photo);
-	// 		if (json.data.photos.photo.length === 0)
-	// 			return alert('해당 검색어의 결과 이미지가 없습니다.');
-	// 		setItems(json.data.photos.photo);
-	// 	});
-	// 	setTimeout(() => {
-	// 		setLoading(false);
-	// 		frame.current.classList.add('on');
-
-	// 		setTimeout(() => {
-	// 			setEnableClick(true);
-	// 		}, 500);
-	// 	}, 1000);
-	// };
-
-	const showSearch = () => {
-		const result = input.current.value.trim();
-		input.current.value = '';
-
-		if (!result) return alert('검색어를 입력하세요.');
-
-		if (!EnableClick) return;
-		setEnableClick(false);
+	const startLoading = () => {
 		setLoading(true);
 		frame.current.classList.remove('on');
-		dispatch(fetchFlickr({ type: 'search', tags: result }));
+	};
+
+	const endLoading = () => {
+		setTimeout(() => {
+			frame.current.classList.add('on');
+			setLoading(false);
+			setTimeout(() => setEnableClick(true), 1000);
+		}, 1000);
+	};
+
+	const showInterest = () => {
+		if (!EnableClick) return;
+		setEnableClick(false);
+		startLoading();
+		setOpt({ type: 'interest' });
+	};
+
+	const showSearch = () => {
+		if (!EnableClick) return;
+		setEnableClick(false);
+		const result = input.current.value.trim();
+		input.current.value = '';
+		if (!result) return alert('검색어를 입력하세요.');
+		setLoading(true);
+		setOpt({ type: 'search', tags: result });
+	};
+
+	const showUser = (e) => {
+		if (!EnableClick) return;
+		setEnableClick(false);
+		let userID = '195962412@N06';
+		e.target.innerText !== 'My Gallery' && (userID = e.target.innerText);
+		setLoading(true);
+		setOpt({ type: 'user', user: userID });
 	};
 
 	useEffect(() => {
-		dispatch(fetchFlickr({ type: 'user', user: '195962412@N06' }));
-	}, []);
+		dispatch(fetchFlickr(Opt));
+	}, [Opt]);
+
+	useEffect(endLoading, [flickr]);
 
 	return (
 		<>
@@ -85,7 +81,7 @@ function Gallery() {
 								setEnableClick(false);
 								setLoading(true);
 								frame.current.classList.remove('on');
-								dispatch(fetchFlickr({ type: 'interest' }));
+								showInterest();
 							}}>
 							Interest Gallery
 						</button>
@@ -97,7 +93,7 @@ function Gallery() {
 								setEnableClick(false);
 								setLoading(true);
 								frame.current.classList.remove('on');
-								dispatch(fetchFlickr({ type: 'user', user: '195962412@N06' }));
+								showUser();
 							}}>
 							My Gallery
 						</button>
@@ -170,10 +166,10 @@ function Gallery() {
 			</Layout>
 
 			<Popup ref={pop}>
-				{Items.length !== 0 && (
+				{flickr.length !== 0 && (
 					<img
-						src={`https://live.staticflickr.com/${Items[Index].server}/${Items[Index].id}_${Items[Index].secret}_m.jpg`}
-						alt={Items[Index].title}
+						src={`https://live.staticflickr.com/${flickr[Index].server}/${flickr[Index].id}_${flickr[Index].secret}_m.jpg`}
+						alt={flickr[Index].title}
 					/>
 				)}
 			</Popup>
