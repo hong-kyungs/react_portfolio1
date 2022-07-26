@@ -15,7 +15,7 @@ function Vids() {
 	return (
 		<>
 			<section id='vids' className='myScroll'>
-				<h1>Vids</h1>
+				<h1>Hear it. See it. Live it.</h1>
 				<Swiper
 					modules={[Pagination, Navigation, Autoplay]}
 					navigation={true}

@@ -8,7 +8,7 @@ function Pics() {
 	const [Index, setIndex] = useState(0);
 	return (
 		<section id='pics' className='myScroll'>
-			<h1>Pics</h1>
+			<h1>Gallery & Art</h1>
 			<div className='preview'>
 				{flickr.map((pic, idx) => {
 					if (idx >= 4) return;

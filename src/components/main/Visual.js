@@ -114,10 +114,10 @@ function Visual() {
 			</ul>
 
 			<button className='prev' onClick={showPrev}>
-				prev
+				P R E V
 			</button>
 			<button className='next' onClick={showNext}>
-				next
+				N E X T
 			</button>
 		</figure>
 	);

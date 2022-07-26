@@ -73,6 +73,7 @@ function Gallery() {
 						src={`${process.env.PUBLIC_URL}/img/loading.gif`}
 					/>
 				)}
+				<span className='typo'>SPECIAL</span>
 				<div className='list'>
 					<div className='button'>
 						<button

@@ -3,7 +3,7 @@ import React from 'react';
 function Ad() {
 	return (
 		<section id='ad' className='myScroll'>
-			<h1>Ad</h1>
+			<h1>Your senses. Set Free.</h1>
 			<div className='video'>
 				<video
 					loop

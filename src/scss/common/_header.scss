@@ -4,7 +4,7 @@ header {
   z-index: 3;
   .inner {
     width: 1180px;
-    min-height: 80vh;
+    min-height: 100vh;
     margin: 0 auto;
     position: relative;
 
@@ -32,7 +32,7 @@ header {
           display: inline-block;
           padding: 20px 30px;
           font: bold 16px 'noto sans';
-          font-weight: 100;
+          font-weight: 400;
           color: #fff;
           &:last-of-type {
             padding: 20px 0 20px 30px;
@@ -42,7 +42,7 @@ header {
     }
     #util {
       position: absolute;
-      bottom: 20px;
+      bottom: 50px;
       right: 0;
       > li {
         float: left;
