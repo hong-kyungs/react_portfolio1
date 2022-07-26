@@ -110,9 +110,30 @@ header {
       h1 a {
         color: #fff;
       }
-      #gnb li a {
-        color: #fff;
+      #gnb {
+        li {
+          a {
+            color: #fff;
+            position: relative;
+            &::after {
+              content: '';
+              display: block;
+              height: 2px;
+              width: 70%;
+              position: absolute;
+              bottom: 10px;
+              background: #fff;
+              transition: 0.5s;
+              transform: scaleX(0);
+              transform-origin: 0% 100%;
+            }
+          }
+          &:hover a::after {
+            transform: scaleX(100%);
+          }
+        }
       }
+
       #util li a .i {
         color: #fff;
       }
