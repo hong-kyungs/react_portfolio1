@@ -30,6 +30,8 @@
         transform: scale(0.8);
         transition: opacity 0.5 transfrom 0.5;
         cursor: pointer;
+        background: #fce4ec;
+        padding: 10px;
         .pic {
           width: 100%;
           img {
@@ -54,10 +56,14 @@
           }
         }
       }
+
       &.swiper-slide-active {
         .inner {
           opacity: 1;
           transform: scale(1);
+        }
+        &:hover .inner {
+          background: lightpink;
         }
       }
     }

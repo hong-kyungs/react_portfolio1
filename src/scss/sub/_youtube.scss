@@ -85,6 +85,57 @@
     }
   }
 }
+.sub_img {
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+
+  .img_con {
+    width: 100%;
+    height: 380px;
+    padding-left: 15%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+  }
+  .txt {
+    width: 50%;
+    // background: lightpink;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 5vw;
+    margin-top: 50px;
+    p {
+      font: 65px/1.3 'playfair display';
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #000;
+      padding-right: 50px;
+      margin-bottom: 30px;
+    }
+    span {
+      display: inline-block;
+      font: 14px/1.5 'roboto';
+      color: #878787;
+      padding-left: 50%;
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        width: 7vw;
+        height: 1px;
+        background: #bbb;
+        position: absolute;
+        top: 5px;
+        left: 30%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: $tablet) {
   .Youtube {

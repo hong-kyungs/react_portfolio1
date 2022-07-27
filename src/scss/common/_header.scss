@@ -28,6 +28,7 @@ header {
       right: 0;
       > li {
         float: left;
+        position: relative;
         a {
           display: inline-block;
           padding: 20px 30px;
@@ -37,6 +38,21 @@ header {
           &:last-of-type {
             padding: 20px 0 20px 30px;
           }
+          &::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 70%;
+            position: absolute;
+            bottom: 10px;
+            background: #fff;
+            transition: 0.5s;
+            transform: scaleX(0);
+            transform-origin: 0% 100%;
+          }
+        }
+        &:hover a::after {
+          transform: scaleX(100%);
         }
       }
     }
@@ -69,15 +85,55 @@ header {
 
   &.sub {
     background: #ffffff;
+
     .inner {
       min-height: 80px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        width: 20%;
+        height: 1px;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.1);
+        bottom: -1px;
+        left: -20%;
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 20%;
+        height: 1px;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.1);
+        bottom: -1px;
+        right: -20%;
+      }
       h1 a {
         color: #222;
       }
       #gnb {
         left: 10%;
-        li a {
-          color: #222;
+        li {
+          a {
+            color: #222;
+            &::after {
+              content: '';
+              display: block;
+              height: 2px;
+              width: 70%;
+              position: absolute;
+              bottom: 15px;
+              background: #fc8276;
+              transition: 0.5s;
+              transform: scaleX(0);
+              transform-origin: 0% 100%;
+            }
+          }
+          &:hover a::after {
+            transform: scaleX(100%);
+          }
         }
       }
       #util {
@@ -114,22 +170,6 @@ header {
         li {
           a {
             color: #fff;
-            position: relative;
-            &::after {
-              content: '';
-              display: block;
-              height: 2px;
-              width: 70%;
-              position: absolute;
-              bottom: 10px;
-              background: #fff;
-              transition: 0.5s;
-              transform: scaleX(0);
-              transform-origin: 0% 100%;
-            }
-          }
-          &:hover a::after {
-            transform: scaleX(100%);
           }
         }
       }

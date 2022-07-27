@@ -146,7 +146,7 @@ function Community() {
 			</div>
 
 			<div className='showBox'>
-				<p>reviews</p>
+				<p>Share your experience</p>
 				{Posts.map((post, idx) => {
 					return (
 						<article key={idx}>

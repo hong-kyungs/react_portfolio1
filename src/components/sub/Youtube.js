@@ -60,6 +60,19 @@ function Youtube() {
 					);
 				})}
 			</Layout>
+			<div className='sub_img'>
+				<div className='img_con'>
+					<img src={process.env.PUBLIC_URL + '/img/youtube_sub2.jpg'} alt='' />
+				</div>
+				<div className='txt'>
+					<p>Watch our new video story</p>
+					<span>
+						Whether it's a cinematic centrepiece or a surround sound experience,
+						we put you at the heart of the action. And that goes for design,
+						too.
+					</span>
+				</div>
+			</div>
 
 			<Popup ref={pop}>
 				{Vids.length !== 0 && (

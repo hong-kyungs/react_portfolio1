@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
-
 function Reviews() {
 	const [Posts, setPosts] = useState([]);
 
@@ -13,23 +10,25 @@ function Reviews() {
 
 	return (
 		<section id='reviews' className='myScroll'>
-			<h1>Reviews</h1>
-			<div className='inner'>
-				<span>
-					<FontAwesomeIcon icon={faQuoteLeft} />
-				</span>
-				{Posts.map((post, idx) => {
-					if (idx >= 1) return;
-					return (
-						<article key={idx}>
-							<h2>{post.title}</h2>
-							<p>{post.content}</p>
-						</article>
-					);
-				})}
-				<div className='btnset'>
-					<button className='prev'>prev</button>
-					<button className='next'>next</button>
+			<div className='bg'>
+				<img
+					src={process.env.PUBLIC_URL + '/img/reviews.jpg'}
+					alt='인테리어사진'
+				/>
+			</div>
+
+			<div className='review_con'>
+				<h1>Share your experience</h1>
+				<div className='inner'>
+					{Posts.map((post, idx) => {
+						if (idx >= 4) return;
+						return (
+							<article key={idx}>
+								<h2>{post.title}</h2>
+								<p>{post.content}</p>
+							</article>
+						);
+					})}
 				</div>
 			</div>
 		</section>

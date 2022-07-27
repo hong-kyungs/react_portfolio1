@@ -23,7 +23,6 @@ function Vids() {
 						clickable: true,
 					}}
 					slidesPerView={3}
-					spaceBetween={20}
 					loop={true}
 					centeredSlides={true}
 					autoplay={{
