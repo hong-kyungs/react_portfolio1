@@ -22,7 +22,17 @@ function Vids() {
 					pagination={{
 						clickable: true,
 					}}
-					slidesPerView={3}
+					breakpoints={{
+						0: {
+							slidesPerView: 1,
+						},
+						700: {
+							slidesPerView: 2,
+						},
+						1200: {
+							slidesPerView: 3,
+						},
+					}}
 					loop={true}
 					centeredSlides={true}
 					autoplay={{

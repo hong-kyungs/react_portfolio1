@@ -3,7 +3,7 @@
   min-height: 80vh;
   background: #f5f4f3;
   position: relative;
-  padding: 10vh 2vw;
+  padding: 10vh 2vw 20vh;
   h1 {
     display: block;
     width: 100%;
@@ -94,6 +94,40 @@
       right: 90px;
       transform: scale(0.5);
       filter: grayscale(1);
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  #vids {
+    h1 {
+      font: 35px/1 'playfair display';
+    }
+    .swiper {
+      .swiper-button-prev {
+        left: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  #vids {
+    min-height: 60vh;
+    padding: 15vh 2vw 15vh;
+    h1 {
+      margin-bottom: 30px;
+    }
+    .swiper {
+      height: 55vh;
+      .swiper-slide {
+        .inner {
+          h2 {
+            font: 16px/1.5 'noto sans';
+            font-weight: 400;
+          }
+        }
+      }
     }
   }
 }

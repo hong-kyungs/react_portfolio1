@@ -36,18 +36,20 @@ function Footer() {
 					<div className='sns'>
 						<h2>FOLLOW US</h2>
 						<p>Join us on</p>
-						<a href='#'>
-							<FontAwesomeIcon icon={faFacebookF} className='i' />
-						</a>
-						<a href='#'>
-							<FontAwesomeIcon icon={faTwitter} className='i' />
-						</a>
-						<a href='#'>
-							<FontAwesomeIcon icon={faInstagram} className='i' />
-						</a>
-						<a href='#'>
-							<FontAwesomeIcon icon={faYoutube} className='i' />
-						</a>
+						<div className='sns_set'>
+							<a href='#'>
+								<FontAwesomeIcon icon={faFacebookF} className='i' />
+							</a>
+							<a href='#'>
+								<FontAwesomeIcon icon={faTwitter} className='i' />
+							</a>
+							<a href='#'>
+								<FontAwesomeIcon icon={faInstagram} className='i' />
+							</a>
+							<a href='#'>
+								<FontAwesomeIcon icon={faYoutube} className='i' />
+							</a>
+						</div>
 					</div>
 				</div>
 				<p>Copyright © Bang Olufsen Co. Ltd. All rights reserved.</p>

@@ -38,3 +38,17 @@
     }
   }
 }
+
+@media screen and (max-width: $mobile) {
+  #ad {
+    padding: 5vh 5vw;
+    min-height: 50vh;
+    h1 {
+      font: 35px/1 'playfair display';
+    }
+    .video {
+      width: 100%;
+      height: 40vh;
+    }
+  }
+}
