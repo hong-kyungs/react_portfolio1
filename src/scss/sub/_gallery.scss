@@ -1,8 +1,5 @@
 .Gallery {
   position: relative;
-  figure {
-    background: lightcyan;
-  }
   .loading {
     position: absolute;
     top: 10%;
@@ -43,7 +40,7 @@
     position: relative;
     display: flex;
     margin-bottom: 30px;
-    div {
+    .button {
       position: relative;
       display: inline-block;
       margin-right: 30px;
@@ -55,29 +52,6 @@
         font-weight: 300;
         cursor: pointer;
       }
-      &:last-child button {
-        border: 1px solid #878787;
-        font: 14px/1 'roboto';
-        padding: 5px 10px;
-        &:hover {
-          border: 1px solid #fc8276;
-        }
-      }
-
-      input {
-        width: 150px;
-        border: none;
-        border-bottom: 1px solid #878787;
-        font: 14px/1 'roboto';
-        color: #878787;
-        padding: 0 10px 5px;
-        outline: none;
-        margin-right: 20px;
-        &:focus {
-          border-bottom: 1px solid #fc8276;
-        }
-      }
-
       &::after {
         content: '/';
         display: block;
@@ -89,12 +63,43 @@
       &:last-child::after {
         display: none;
       }
+      &:hover button {
+        color: #000;
+      }
+    }
+
+    .searchBox {
+      input {
+        width: 150px;
+        border: none;
+        border-bottom: 1px solid #878787;
+        font: 14px/1 'roboto';
+        color: #878787;
+        padding: 0 10px 5px;
+        outline: none;
+        margin-right: 20px;
+        &:focus {
+          border-bottom: 1.5px solid #000;
+        }
+      }
+      > button {
+        border: 1px solid #878787;
+        font: 14px/1 'roboto';
+        padding: 5px 10px;
+        background: #fff;
+        &:hover {
+          background: #878787;
+          color: #fff;
+        }
+      }
     }
   }
   .frame {
     transform: translateY(200px);
     opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
+    width: 100%;
+    position: relative;
     &.on {
       transform: translateY(0);
       opacity: 1;
@@ -141,6 +146,88 @@
             font-weight: 300;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .Gallery {
+    position: relative;
+    .typo {
+      right: 30%;
+      font: 70px/1 'Cormorant SC';
+      &::before {
+        font: 70px/1 'Cormorant SC';
+      }
+      &::after {
+        font: 70px/1 'Cormorant SC';
+      }
+    }
+    .frame {
+      article {
+        width: 33.3333%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .Gallery {
+    position: relative;
+    .typo {
+      display: none;
+    }
+    .list {
+      flex-wrap: wrap;
+      .button {
+        display: flex;
+        justify-content: center;
+        width: 45%;
+        margin-bottom: 20px;
+        margin-right: 5%;
+        button {
+          padding: 5px 0;
+        }
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 1px;
+          background: #878787;
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+        &:last-child::after {
+          display: none;
+        }
+        &:hover {
+          &::after {
+            background: #000;
+          }
+        }
+      }
+
+      .searchBox {
+        width: 100%;
+        display: flex;
+        position: relative;
+        input {
+          width: 45%;
+          margin-right: 5%;
+          text-align: center;
+        }
+        > button {
+          border-radius: 2px;
+          width: 45%;
+          padding: 8px 10px;
+        }
+      }
+    }
+    .frame {
+      article {
+        width: 100%;
       }
     }
   }

@@ -11,7 +11,7 @@ import { useRef } from 'react';
 
 function Header(props) {
 	const menu = useRef(null);
-	const active = { color: '#fc8276' };
+	const active = { color: '#c9ab81' };
 	let url = '';
 	props.type === 'main'
 		? (url = process.env.PUBLIC_URL + '/img/logo_w.png')
@@ -48,14 +48,14 @@ function Header(props) {
 						</li>
 					</ul>
 					<ul id='util'>
-						<li>
+						{/* <li>
 							<NavLink
 								to='/login'
 								activeStyle={active}
 								activeClassName='active'>
 								<FontAwesomeIcon icon={faArrowRightToBracket} className='i' />
 							</NavLink>
-						</li>
+						</li> */}
 						<li>
 							<NavLink to='/members' activeStyle={active}>
 								<FontAwesomeIcon icon={faUser} className='i' />

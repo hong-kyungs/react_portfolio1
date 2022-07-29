@@ -125,10 +125,13 @@ header {
               width: 70%;
               position: absolute;
               bottom: 15px;
-              background: #fc8276;
+              background: #c9ab81;
               transition: 0.5s;
               transform: scaleX(0);
               transform-origin: 0% 100%;
+            }
+            &.active::after {
+              transform: scaleX(100%);
             }
           }
           &:hover a::after {
@@ -144,7 +147,7 @@ header {
               color: #222;
             }
             &.active .i {
-              color: #fc8276;
+              color: #c9ab81;
             }
           }
         }
