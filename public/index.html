@@ -66,11 +66,11 @@
     createDOM();
 
     Promise.all([loadImg(), loadVid()]).then(result => {
-      console.log(result);
+      // console.log(result);
       const [loadedImg, loadedVid] = result;
 
       if (loadedImg && loadedVid) {
-        console.log('mask-hide');
+        // console.log('mask-hide');
         mask.classList.add('off');
 
         setTimeout(() => {
@@ -98,7 +98,7 @@
         imgDOM.forEach(img => {
           img.onload = () => {
             countImg++;
-            console.log('img loaded', countImg);
+            // console.log('img loaded', countImg);
             if (countImg === lenImg) {
               res(true);
             }
@@ -115,7 +115,7 @@
         vidDOM.forEach(vid => {
           vid.onloadeddata = () => {
             countVid++;
-            console.log('vid loaded', countVid);
+            // console.log('vid loaded', countVid);
             if (countVid === lenVid) {
               res(true);
             }

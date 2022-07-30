@@ -54,7 +54,7 @@ function Gallery() {
 		setEnableClick(false);
 		let userID = '195962412@N06';
 		e.target.innerText !== 'My Gallery' && (userID = e.target.innerText);
-		setLoading(true);
+		startLoading(true);
 		setOpt({ type: 'user', user: userID });
 	};
 
@@ -76,28 +76,10 @@ function Gallery() {
 				<span className='typo'>SPECIAL</span>
 				<div className='list'>
 					<div className='button'>
-						<button
-							onClick={() => {
-								if (!EnableClick) return;
-								setEnableClick(false);
-								setLoading(true);
-								frame.current.classList.remove('on');
-								showInterest();
-							}}>
-							Interest Gallery
-						</button>
+						<button onClick={showInterest}>Interest Gallery</button>
 					</div>
 					<div className='button'>
-						<button
-							onClick={() => {
-								if (!EnableClick) return;
-								setEnableClick(false);
-								setLoading(true);
-								frame.current.classList.remove('on');
-								showUser();
-							}}>
-							My Gallery
-						</button>
+						<button onClick={showUser}>My Gallery</button>
 					</div>
 					<div className='searchBox'>
 						<input
@@ -141,22 +123,7 @@ function Gallery() {
 													);
 												}}
 											/>
-											<span
-												onClick={(e) => {
-													if (!EnableClick) return;
-													setEnableClick(true);
-													setLoading(true);
-													frame.current.classList.remove('on');
-
-													dispatch(
-														fetchFlickr({
-															type: 'user',
-															user: e.target.innerText,
-														})
-													);
-												}}>
-												{item.owner}
-											</span>
+											<span onClick={showUser}>{item.owner}</span>
 										</div>
 									</div>
 								</article>

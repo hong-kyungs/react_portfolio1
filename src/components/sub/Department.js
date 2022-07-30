@@ -1,6 +1,7 @@
 import Layout from '../common/Layout';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faFacebookF,
@@ -12,6 +13,38 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 function Department() {
 	const path = process.env.PUBLIC_URL;
 	const members = useSelector((store) => store.members.data);
+	const [Scrolled, setScrolled] = useState(0);
+	const base = -400;
+	const itemsRef = useRef([]);
+	const pos = useRef([]);
+	let els = null;
+	const scroll = window.scrollY;
+
+	const getPos = () => {
+		pos.current = [];
+		els = itemsRef.current;
+		for (const el of els) pos.current.push(el.offsetTop);
+	};
+
+	const activation = () => {
+		const scroll = window.scrollY;
+		setScrolled(scroll);
+		pos.current.map((pos, idx) => {
+			if (scroll >= pos + base) {
+				els[idx].classList.add('active');
+			}
+		});
+	};
+
+	useEffect(() => {
+		getPos();
+		window.addEventListener('resize', getPos);
+		window.addEventListener('scroll', activation);
+		return () => {
+			window.removeEventListener('resize', getPos);
+			window.removeEventListener('scroll', activation);
+		};
+	}, [scroll]);
 
 	return (
 		<Layout name={'Department'}>
