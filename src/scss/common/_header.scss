@@ -210,6 +210,8 @@ header {
       background: #efefef;
       .inner {
         min-height: 80px;
+        width: 100%;
+        overflow: hidden;
         h1 {
           top: 15px;
           left: 50%;

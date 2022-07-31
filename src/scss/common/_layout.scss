@@ -15,6 +15,13 @@
     min-height: 400px;
     margin: 100px auto 100px;
     position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+    &.active {
+      transform: translateY(0px);
+      opacity: 1;
+    }
     h1 {
       font: normal 60px/1 'noto sans';
       font-weight: 100;

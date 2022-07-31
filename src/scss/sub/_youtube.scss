@@ -1,83 +1,109 @@
 .Youtube {
-  article {
-    &:nth-of-type(1) {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      position: relative;
+  .article_wrap {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.5s;
+    &.on {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    article {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: 0.5s;
+      &.active {
+        transform: translateY(0);
+        opacity: 1;
+        @for $i from 1 to 4 {
+          &:nth-of-type(#{$i + 1}) {
+            transition-delay: 0.25s * $i;
+          }
+        }
+        @for $i from 4 to 7 {
+          &:nth-of-type(#{$i + 1}) {
+            transition-delay: 0.25s * ($i - 3);
+          }
+        }
+      }
+      &:nth-of-type(1) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        .pic {
+          width: 50%;
+          height: 420px;
+        }
+        > .txt {
+          position: relative;
+          width: 45%;
+          margin-top: 0;
+          word-break: break-all;
+          h3 {
+            font: bold 20px/1.2 'noto sans';
+            margin-bottom: 50px;
+          }
+          p {
+            margin-bottom: 50px;
+          }
+        }
+      }
+      width: 33.333%;
+      display: inline-flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      margin-bottom: 20px;
       .pic {
-        width: 50%;
-        height: 420px;
+        width: 100%;
+        height: 210px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: 0.5s;
+        position: relative;
+        background: #000;
+        &:hover img {
+          filter: brightness(30%);
+        }
+        &:hover .fa-youtube {
+          display: block;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .fa-youtube {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 30px;
+          color: #fff;
+          display: none;
+          transition: 0.5s;
+        }
       }
       > .txt {
-        position: relative;
-        width: 45%;
-        margin-top: 0;
-        word-break: break-all;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         h3 {
-          font: bold 20px/1.2 'noto sans';
-          margin-bottom: 50px;
+          font: bold 18px/1 'noto sans';
+          font-weight: 400;
+          color: #222;
         }
         p {
-          margin-bottom: 50px;
+          font: 16px/1.5 'noto sans';
+          font-weight: 100;
+          color: #222;
         }
-      }
-    }
-    width: 33.333%;
-    display: inline-flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin-bottom: 20px;
-    .pic {
-      width: 100%;
-      height: 210px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      transition: 0.5s;
-      position: relative;
-      background: #000;
-      &:hover img {
-        filter: brightness(30%);
-      }
-      &:hover .fa-youtube {
-        display: block;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .fa-youtube {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 30px;
-        color: #fff;
-        display: none;
-        transition: 0.5s;
-      }
-    }
-    > .txt {
-      width: 100%;
-      height: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      h3 {
-        font: bold 18px/1 'noto sans';
-        font-weight: 400;
-        color: #222;
-      }
-      p {
-        font: 16px/1.5 'noto sans';
-        font-weight: 100;
-        color: #222;
-      }
-      span {
-        font: 14px/1 'noto sans';
-        font-weight: 100;
-        color: #555;
+        span {
+          font: 14px/1 'noto sans';
+          font-weight: 100;
+          color: #555;
+        }
       }
     }
   }
@@ -136,20 +162,39 @@
 
 @media screen and (max-width: $tablet) {
   .Youtube {
-    article {
-      &:nth-of-type(1) {
-        h3 {
-          font: bold 18px/1.2 'noto sans';
-          font-weight: 400;
-          margin-bottom: 30px;
+    .article_wrap {
+      article {
+        &.active {
+          @for $i from 1 to 3 {
+            &:nth-of-type(#{$i + 1}) {
+              transition-delay: 0.25s * $i;
+            }
+          }
+          @for $i from 3 to 5 {
+            &:nth-of-type(#{$i + 1}) {
+              transition-delay: 0.25s * ($i - 2);
+            }
+          }
+          @for $i from 5 to 7 {
+            &:nth-of-type(#{$i + 1}) {
+              transition-delay: 0.25s * ($i - 4);
+            }
+          }
         }
-        p {
-          font-size: 15px;
-          font-weight: 100;
-          margin-bottom: 30px;
+        &:nth-of-type(1) {
+          h3 {
+            font: bold 18px/1.2 'noto sans';
+            font-weight: 400;
+            margin-bottom: 30px;
+          }
+          p {
+            font-size: 15px;
+            font-weight: 100;
+            margin-bottom: 30px;
+          }
         }
+        width: 50%;
       }
-      width: 50%;
     }
   }
 
@@ -170,38 +215,47 @@
 
 @media screen and (max-width: $mobile) {
   .Youtube {
-    article {
-      &:nth-of-type(1) {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        .pic {
-          width: 100%;
-          height: 210px;
-        }
-        > .txt {
-          width: 100%;
-          h3 {
-            margin-bottom: 10px;
-          }
-          p {
-            display: none;
+    .article_wrap {
+      article {
+        &.active {
+          @for $i from 0 to 7 {
+            &:nth-of-type(#{$i + 1}) {
+              transition-delay: 0.1s * $i;
+            }
           }
         }
-      }
+        &:nth-of-type(1) {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          position: relative;
+          .pic {
+            width: 100%;
+            height: 210px;
+          }
+          > .txt {
+            width: 100%;
+            h3 {
+              margin-bottom: 10px;
+            }
+            p {
+              display: none;
+            }
+          }
+        }
 
-      width: 100%;
-      > .txt {
-        p {
-          font: 14px/1.5 'noto sans';
-          font-weight: 100;
-          color: #222;
-        }
-        span {
-          font: 12px/1 'noto sans';
-          font-weight: 100;
+        width: 100%;
+        > .txt {
+          p {
+            font: 14px/1.5 'noto sans';
+            font-weight: 100;
+            color: #222;
+          }
+          span {
+            font: 12px/1 'noto sans';
+            font-weight: 100;
+          }
         }
       }
     }
