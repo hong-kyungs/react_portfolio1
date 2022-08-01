@@ -1,25 +1,27 @@
 @charset "UTF-8";
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 ol,
 ul,
 li {
-  list-style: none;
+	list-style: none;
 }
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 body {
-  background: #ffffff;
+	background: #ffffff;
+	width: 100%;
+	overflow-x: hidden;
 }
 fieldset {
-  border: none;
+	border: none;
 }
 .h {
-  position: absolute;
-  top: -999999px;
-  opacity: 0;
+	position: absolute;
+	top: -999999px;
+	opacity: 0;
 }

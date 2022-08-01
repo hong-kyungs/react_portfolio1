@@ -52,7 +52,9 @@ function Vids() {
 											swiperRef.current.swiper.autoplay.stop();
 										}}>
 										<img
-											src={vid.snippet.thumbnails.medium.url}
+											src={
+												vid.snippet.thumbnails.medium.url
+											}
 											alt={vid.snippet.title}
 										/>
 									</div>

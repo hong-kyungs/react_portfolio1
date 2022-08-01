@@ -1,12 +1,17 @@
-import { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
+import {
+	useEffect,
+	useState,
+	forwardRef,
+	useImperativeHandle,
+} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Popup = forwardRef((props, ref) => {
 	const [Open, setOpen] = useState(false);
 	useEffect(() => {
 		Open
-			? (document.body.style.overflow = 'hidden')
-			: (document.body.style.overflow = 'auto');
+			? (document.body.style.overflowY = 'hidden')
+			: (document.body.style.overflowY = 'auto');
 	}, [Open]);
 
 	useImperativeHandle(ref, () => {
@@ -21,7 +26,11 @@ const Popup = forwardRef((props, ref) => {
 				<motion.aside
 					className='pop'
 					initial={{ opacity: 0, scale: 0 }}
-					animate={{ opacity: 1, scale: 1, transition: { duration: 0.5 } }}
+					animate={{
+						opacity: 1,
+						scale: 1,
+						transition: { duration: 0.5 },
+					}}
 					exit={{
 						opacity: 0,
 						scale: 0,
@@ -30,8 +39,14 @@ const Popup = forwardRef((props, ref) => {
 					<motion.div
 						className='con'
 						initial={{ opacity: 0 }}
-						animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.5 } }}
-						exit={{ opacity: 0, transition: { duration: 0.5 } }}>
+						animate={{
+							opacity: 1,
+							transition: { duration: 0.5, delay: 0.5 },
+						}}
+						exit={{
+							opacity: 0,
+							transition: { duration: 0.5 },
+						}}>
 						{props.children}
 					</motion.div>
 					<motion.span
@@ -43,7 +58,11 @@ const Popup = forwardRef((props, ref) => {
 							opacity: 1,
 							transition: { duration: 0.5, delay: 0.5 },
 						}}
-						exit={{ opacity: 0, x: 100, transition: { duration: 0.5 } }}>
+						exit={{
+							opacity: 0,
+							x: 100,
+							transition: { duration: 0.5 },
+						}}>
 						close
 					</motion.span>
 				</motion.aside>
