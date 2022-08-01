@@ -3,54 +3,62 @@
     background: lightblue;
   }
   > .inner {
-    .inputBox {
+    .input_wrap {
       width: 100%;
-      height: 60vh;
-      background: #fef0ea;
-      padding: 100px 100px 0px;
-      margin-top: 120px;
-      margin-bottom: 50px;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       p {
+        width: 100%;
+        // background: lightblue;
         font: 75px/1 'playfair display';
         font-weight: 700;
         position: absolute;
-        top: -55px;
-        left: 50px;
+        top: -12%;
+        text-align: center;
+        z-index: 1;
       }
-
-      input[type='text'],
-      textarea {
-        background: none;
-        border: none;
-        border-bottom: 1px solid #878787;
+      .inputBox {
         width: 50%;
-        padding: 8px 10px;
-        margin-bottom: 20px;
-        outline: none;
-        resize: none;
-      }
-      > .btnSet {
-        width: 490px;
+        height: 60vh;
+        background: #fef0ea;
+        padding: 40px 0 0px;
+        margin-left: 25%;
+        margin-top: 120px;
+        margin-bottom: 50px;
         position: relative;
         display: flex;
-        justify-content: space-between;
-        button {
-          width: 48%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-          height: 30px;
-          display: inline-block;
-          justify-content: center;
-          align-items: center;
+        input[type='text'],
+        textarea {
+          background: none;
           border: none;
-          background: #878787;
-          color: #fff;
-          cursor: pointer;
-          // margin-right: 20px;
+          border-bottom: 1px solid #878787;
+          width: 60%;
+          padding: 8px 10px;
+          margin-bottom: 20px;
+          outline: none;
+          resize: none;
+        }
+        > .btnSet {
+          width: 60%;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          button {
+            width: 48%;
+
+            height: 30px;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background: #878787;
+            color: #fff;
+            cursor: pointer;
+            // margin-right: 20px;
+          }
         }
       }
     }
@@ -178,17 +186,22 @@
 @media screen and (max-width: $tablet) {
   .Community {
     > .inner {
-      .inputBox {
+      .input_wrap {
         p {
           font: 65px/1 'playfair display';
           font-weight: 700;
           position: absolute;
           top: -45px;
-          left: 50px;
+          // left: 50px;
         }
-
-        > .btnSet {
-          width: 50%;
+        .inputBox {
+          input[type='text'],
+          textarea {
+            width: 70%;
+          }
+          > .btnSet {
+            width: 70%;
+          }
         }
       }
 
@@ -198,6 +211,14 @@
           width: 32%;
           margin-right: 2%;
           height: 350px;
+          .showBox_inner {
+            .txt {
+              h2 {
+                font: 18px/1 'play';
+                margin-bottom: 50px;
+              }
+            }
+          }
         }
       }
     }
@@ -207,28 +228,30 @@
 @media screen and (max-width: $mobile) {
   .Community {
     > .inner {
-      .inputBox {
-        width: 100%;
-        height: 45vh;
-        padding: 20px 20px 0px;
-        margin-top: 120px;
-        margin-bottom: 20px;
-        position: relative;
+      .input_wrap {
         p {
           width: 100%;
           text-align: center;
-          font: 30px/1 'playfair display';
+          font: 32px/1 'playfair display';
           font-weight: 700;
           top: -30px;
           left: 0;
         }
-
-        input[type='text'],
-        textarea {
-          width: 90%;
-        }
-        > .btnSet {
-          width: 90%;
+        .inputBox {
+          width: 100%;
+          height: 45vh;
+          padding: 20px 20px 0px;
+          margin-top: 120px;
+          margin-bottom: 20px;
+          position: relative;
+          margin-left: 0;
+          input[type='text'],
+          textarea {
+            width: 90%;
+          }
+          > .btnSet {
+            width: 90%;
+          }
         }
       }
 
@@ -246,7 +269,7 @@
         article {
           width: 100%;
           margin: 0 20px;
-          height: 300px;
+          height: 280px;
           padding: 20px;
           margin-bottom: 40px;
           &:nth-of-type(3n) {
@@ -255,7 +278,7 @@
           .showBox_inner {
             .txt {
               h2 {
-                margin-bottom: 60px;
+                margin-bottom: 40px;
               }
               p {
                 font: 12px/1.8 'roboto';

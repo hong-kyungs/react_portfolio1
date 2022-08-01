@@ -101,7 +101,7 @@ function Youtube() {
 			</Layout>
 			<div className='sub_img'>
 				<div className='img_con'>
-					<img src={process.env.PUBLIC_URL + '/img/youtube_sub2.jpg'} alt='' />
+					<img src={process.env.PUBLIC_URL + '/img/youtube_sub3.jpg'} alt='' />
 				</div>
 				<div className='txt'>
 					<p>Watch our new video story</p>

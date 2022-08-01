@@ -127,21 +127,23 @@ function Community() {
 
 	return (
 		<Layout name={'Community'}>
-			<div className='inputBox'>
+			<div className='input_wrap'>
 				<p>Feel free to contact us anytime!</p>
-				<input type='text' placeholder='제목을 입력하세요' ref={input} />
-				<br />
+				<div className='inputBox'>
+					<input type='text' placeholder='제목을 입력하세요' ref={input} />
+					<br />
 
-				<textarea
-					cols='30'
-					rows='5'
-					placeholder='본문을 입력하세요.'
-					ref={textarea}></textarea>
-				<br />
+					<textarea
+						cols='30'
+						rows='5'
+						placeholder='본문을 입력하세요.'
+						ref={textarea}></textarea>
+					<br />
 
-				<div className='btnSet'>
-					<button onClick={resetForm}>CANCEL</button>
-					<button onClick={createPost}>WRITE</button>
+					<div className='btnSet'>
+						<button onClick={resetForm}>CANCEL</button>
+						<button onClick={createPost}>WRITE</button>
+					</div>
 				</div>
 			</div>
 

@@ -3,24 +3,34 @@ function Reviews() {
 	const getLocalData = () => {
 		const dummyPosts = [
 			{
-				title: 'Hello5',
-				content: 'Here comes description  in detail.',
+				title: 'BANG OLUFSEN6',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
 			},
 			{
-				title: 'Hello4',
-				content: 'Here comes description  in detail.',
+				title: 'BANG OLUFSEN5',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
 			},
 			{
-				title: 'Hello3',
-				content: 'Here comes description  in detail.',
+				title: 'BANG OLUFSEN4',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
 			},
 			{
-				title: 'Hello2',
-				content: 'Here comes description  in detail.',
+				title: 'BANG OLUFSEN3',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet.',
 			},
 			{
-				title: 'Hello1',
-				content: 'Here comes description  in detail.',
+				title: 'BANG OLUFSEN2',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
+			},
+			{
+				title: 'BANG OLUFSEN51',
+				content:
+					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
 			},
 		];
 		const data = localStorage.getItem('post');
