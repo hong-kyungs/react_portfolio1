@@ -1,7 +1,6 @@
 import Layout from '../common/Layout';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faFacebookF,

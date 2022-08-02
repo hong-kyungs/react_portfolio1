@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import Anime from '../../asset/anim';
 
 function Layout(props) {
 	const figure = useRef();
@@ -8,6 +9,11 @@ function Layout(props) {
 		if (document.querySelector('.Department'))
 			document.querySelector('.Department').classList.add('on');
 		frame.current.classList.add('active');
+		new Anime(window, {
+			prop: 'scroll',
+			value: 0,
+			duration: 0,
+		});
 	}, []);
 
 	return (

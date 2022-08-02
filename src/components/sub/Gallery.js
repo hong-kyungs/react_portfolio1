@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { fetchFlickr } from '../../redux/flickrSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import Anime from '../../asset/anim';
 
 function Gallery() {
 	const dispatch = useDispatch();
@@ -16,8 +17,19 @@ function Gallery() {
 	const [Loading, setLoading] = useState(true);
 	const [EnableClick, setEnableClick] = useState(true);
 	const [Index, setIndex] = useState(0);
-
 	const masonryOptions = { transitionDuration: '0.5s' };
+
+	// const scroll = window.scrollY;
+	// const inner = document.querySelector('.inner');
+	// const [Scrolled, setScrolled] = useState(0);
+	// const activation = () => {
+	// 	console.log(inner.offsetTop);
+	// 	console.log(scroll);
+	// 	setScrolled(scroll);
+	// 	if (scroll >= pos) {
+	// 		inner.classList.add('active');
+	// 	}
+	// };
 
 	const startLoading = () => {
 		setLoading(true);

@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-function News() {
+function News({ Scrolled, start }) {
 	const members = useSelector((store) => store.members.data);
+	const position = Scrolled - start || 0;
 	return (
 		<section id='news' className='myScroll'>
 			<h1>News</h1>
@@ -25,11 +27,21 @@ function News() {
 								do. It’s what drives us: to change how we all hear, see and feel
 								the world.
 							</p>
-							<a href='/Community'>VIEW MORE</a>
+							<Link to='/Department'>VIEW MORE</Link>
 						</div>
 						<div className='pic'>
 							<img src={process.env.PUBLIC_URL + '/img/' + member.pic} />
 						</div>
+						<p
+							className='deco'
+							style={{ transform: `translateY(${position}px)` }}>
+							BANG &
+						</p>
+						<p
+							className='deco2'
+							style={{ transform: `translateY(${position * -1}px)` }}>
+							OLUFSEN
+						</p>
 					</article>
 				);
 			})}

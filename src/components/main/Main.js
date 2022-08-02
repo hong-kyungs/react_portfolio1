@@ -14,6 +14,7 @@ function Main() {
 	const pos = useRef([]);
 	const [Index, setIndex] = useState(0);
 	let secs = null;
+	const [Scrolled, setScrolled] = useState(0);
 
 	const getPos = () => {
 		pos.current = [];
@@ -25,6 +26,7 @@ function Main() {
 		const base = -window.innerHeight / 2;
 		const scroll = window.scrollY;
 		const btns = main.current.querySelectorAll('.scroll_navi li');
+		setScrolled(scroll);
 		pos.current.map((pos, idx) => {
 			if (scroll >= pos + base) {
 				for (const btn of btns) btn.classList.remove('on');
@@ -57,10 +59,10 @@ function Main() {
 		<main ref={main}>
 			<Header type={'main'} />
 			<Visual />
-			<News />
+			<News Scrolled={Scrolled} start={pos.current[1]} />
 			<Ad />
 			<Pics />
-			<Vids />
+			<Vids Scrolled={Scrolled} start={pos.current[4]} />
 			<Reviews />
 			<Btns setIndex={setIndex} />
 		</main>

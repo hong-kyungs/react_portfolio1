@@ -7,15 +7,18 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-function Vids() {
+function Vids({ Scrolled, start }) {
 	const Vids = useSelector((store) => store.youtube.data);
 	const pop = useRef(null);
 	const swiperRef = useRef(null);
 	const [Index, setIndex] = useState(0);
+	const position = Scrolled - start || 0;
 	return (
 		<>
 			<section id='vids' className='myScroll'>
-				<h1>Hear it. See it. Live it.</h1>
+				<h1 style={{ transform: `scale(${position / 1000 + 1})` }}>
+					Hear it. See it. Live it.
+				</h1>
 				<Swiper
 					modules={[Pagination, Navigation, Autoplay]}
 					navigation={true}
@@ -52,9 +55,7 @@ function Vids() {
 											swiperRef.current.swiper.autoplay.stop();
 										}}>
 										<img
-											src={
-												vid.snippet.thumbnails.medium.url
-											}
+											src={vid.snippet.thumbnails.medium.url}
 											alt={vid.snippet.title}
 										/>
 									</div>
