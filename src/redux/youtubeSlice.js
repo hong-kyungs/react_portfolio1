@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchYoutube = createAsyncThunk(
 	'youtube/requestYoutube',
 	async () => {
-		const key = 'AIzaSyCVnqQLlCzUMqd8pqBHc34g-onr96Z0TaM';
+		const key = process.env.REACT_APP_YOUTUBE_KEY;
 		const playlist = 'PL0Rto-Av72qFwaOm3JsjR4hJymVst9V7u';
 		const num = 7;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;

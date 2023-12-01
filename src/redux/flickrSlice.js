@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchFlickr = createAsyncThunk(
 	'flickr/requestFlickr',
 	async (opt) => {
-		const key = '1410239e47f32f3f403f70fd3c998b38';
+		const key = process.env.REACT_APP_FLICKR_KEY;
 		const method_interest = 'flickr.interestingness.getList';
 		const method_search = 'flickr.photos.search';
 		const method_user = 'flickr.people.getPhotos';
