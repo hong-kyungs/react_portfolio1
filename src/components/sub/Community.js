@@ -10,6 +10,21 @@ function Community() {
 	const getLocalData = () => {
 		const dummyPosts = [
 			{
+				title: 'CINEMA? PICTURE THIS.',
+				contetn:
+					'Stunning sound dances from left to right. Dialogue hits, centred and crisp. Details pop from the screen as if real. This is what home cinema should be –',
+			},
+			{
+				title: 'MUSIC IN MOTION',
+				contetn:
+					'Take a walk and let the music follow you from room to room. The only difference is, it sounds better. Richer, rounder and full of fidelity.',
+			},
+			{
+				title: 'FEEL FREE TO CONTACT US',
+				contetn:
+					'The most innovative part of Beoplay Portal may be the Virtual Boom Arm, which replaces that physical boom with an array of powerful, directional microphones.',
+			},
+			{
 				title: 'BANG OLUFSEN6',
 				content:
 					'Here comes description in detail.Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, ab.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, aspernatur.',
@@ -48,7 +63,7 @@ function Community() {
 		}
 	};
 	const [Posts, setPosts] = useState(getLocalData());
-	const [Allowed, setAllowed] = useState(true);
+	// const [Allowed, setAllowed] = useState(true);
 
 	//폼요소 초기화 함수
 	const resetForm = () => {
@@ -65,6 +80,7 @@ function Community() {
 		if (!input.current.value.trim() || !textarea.current.value.trim()) {
 			resetForm();
 			alert('제목과 본문을 모두 입력하세요.');
+			return;
 		}
 		setPosts([
 			{ title: input.current.value, content: textarea.current.value },
@@ -81,8 +97,8 @@ function Community() {
 
 	//글 수정모두 변경함수
 	const enableUpdate = (index) => {
-		if (!Allowed) return;
-		setAllowed(false);
+		// if (!Allowed) return;
+		// setAllowed(false);
 		setPosts(
 			Posts.map((post, idx) => {
 				if (idx === index) post.enableUpdate = true;
@@ -93,7 +109,7 @@ function Community() {
 
 	//글 출력모드 변경함수
 	const disableUpdate = (index) => {
-		setAllowed(true);
+		// setAllowed(true);
 		setPosts(
 			Posts.map((post, idx) => {
 				if (idx === index) post.enableUpdate = false;
@@ -104,10 +120,6 @@ function Community() {
 
 	//실제 글 수정함수
 	const updatePost = (index) => {
-		if (!inputEdit.current.value.trim() || !textareaEdit.current.value.trim()) {
-			resetForm();
-			return alert('수정할 제목과 본문을 모두 입력하세요.');
-		}
 		setPosts(
 			Posts.map((post, idx) => {
 				if (idx === index) {
@@ -137,7 +149,8 @@ function Community() {
 						cols='30'
 						rows='5'
 						placeholder='본문을 입력하세요.'
-						ref={textarea}></textarea>
+						ref={textarea}
+					></textarea>
 					<br />
 
 					<div className='btnSet'>
@@ -166,7 +179,8 @@ function Community() {
 											cols='30'
 											rows='4'
 											defaultValue={post.content}
-											ref={textareaEdit}></textarea>
+											ref={textareaEdit}
+										></textarea>
 										<br />
 									</div>
 
