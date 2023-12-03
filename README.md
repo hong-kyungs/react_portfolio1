@@ -38,7 +38,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - parallax scrolling
   - 스크롤링(scrolling)으로 이동을 할때 배경이 바뀌도록 한다.
 
-<img src="image/home.gif" width="600" height="400"/>
+<img src="image/home.gif"/>
 
 </div>
 </details>
@@ -49,7 +49,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 
 - 트랜지션, 스크롤링, 마우스 호버 효과
 
-<img src="image/department.gif" width="600" height="400"/>
+<img src="image/department.gif" />
 
 </div>
 </details>
@@ -63,7 +63,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - Masonry : 그리드 레이아웃 라이브러리를 사용하여, 이미지를 효과적으로 배치한다
   - 가로 사이즈는 고정되어있고 세로사이즈가 유동적으로 채워진다.
 
-<img src="image/gallery.gif" width="600" height="400"/>
+<img src="image/gallery.gif"/>
 
 </div>
 </details>
@@ -77,7 +77,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - 특정 영상 클릭시 iframe요소로 동영상을 재생한다.
 - 스크롤, 마우스 호버 효과
 
-<img src="image/youtube.gif" width="600" height="400"/>
+<img src="image/youtube.gif" />
 
 </div>
 </details>
@@ -89,7 +89,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - CRUD 게시판
   - Create, Read, Update, Delete - 게시글 추가, 저장, 수정, 삭제가 가능하다.
 
-<img src="image/community.gif" width="600" height="400"/>
+<img src="image/community.gif" />
 
 </div>
 </details>
@@ -108,7 +108,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - 회원가입 조건에 맞지 않게 작성시 - 해당항목별로 에러메세지 생성한다.
 - 회원가입 조건에 올바르게 작성시 - 회원가입 성공 alert 띄우고, 홈화면으로 이동한다.
 
-<img src="image/join.gif" width="600" height="400"/>
+<img src="image/join.gif" />
 
 </div>
 </details>
@@ -120,7 +120,7 @@ Redux(리덕스)를 사용하여 메인 페이지와 서브페이지에 공통�
 - Kakaomap API를 이용하여 지도 호출
 - 지도 생성, 커스텀 마커 적용
 
-<img src="image/location.gif" width="600" height="400"/>
+<img src="image/location.gif" />
 
 </div>
 </details>
