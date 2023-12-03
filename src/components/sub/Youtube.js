@@ -117,6 +117,7 @@ function Youtube() {
 			<Popup ref={pop}>
 				{Vids.length !== 0 && (
 					<iframe
+						title='youtube popup'
 						src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
 						frameBorder='0'
 					></iframe>
