@@ -2,6 +2,8 @@
 
 ![](image/preview.jpg)
 
+[사이트 바로가기](https://hong-kyungs.github.io/react_portfolio1/)
+
 ## 📋 Project
 
 React, Redux를 학습하며 제작한 반응형 웹사이트입니다.
