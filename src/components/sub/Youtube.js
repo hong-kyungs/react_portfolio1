@@ -7,7 +7,7 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function Youtube() {
 	const pop = useRef(null);
-	const [Open, setOpen] = useState(false);
+	// const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
 	const Vids = useSelector((store) => store.youtube.data);
 	const [Scrolled, setScrolled] = useState(0);
@@ -18,7 +18,7 @@ function Youtube() {
 	const base = -100;
 	const scroll = window.scrollY;
 	const articles = document.querySelectorAll('article');
-	const sub_img = document.querySelector('.sub_img');
+	// const sub_img = document.querySelector('.sub_img');
 
 	const getPos = () => {
 		pos.current = [];
@@ -65,7 +65,8 @@ function Youtube() {
 									onClick={() => {
 										pop.current.open();
 										setIndex(idx);
-									}}>
+									}}
+								>
 									{idx === 0 ? (
 										<img
 											src={process.env.PUBLIC_URL + '/img/youtube1.jpg'}
@@ -117,7 +118,8 @@ function Youtube() {
 				{Vids.length !== 0 && (
 					<iframe
 						src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
-						frameBorder='0'></iframe>
+						frameBorder='0'
+					></iframe>
 				)}
 			</Popup>
 		</>

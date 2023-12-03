@@ -37,16 +37,16 @@ function Footer() {
 						<h2>FOLLOW US</h2>
 						<p>Join us on</p>
 						<div className='sns_set'>
-							<a href='#'>
+							<a href='https://facebook.com'>
 								<FontAwesomeIcon icon={faFacebookF} className='i' />
 							</a>
-							<a href='#'>
+							<a href='https://twitter.com'>
 								<FontAwesomeIcon icon={faTwitter} className='i' />
 							</a>
-							<a href='#'>
+							<a href='https://instagram.com'>
 								<FontAwesomeIcon icon={faInstagram} className='i' />
 							</a>
-							<a href='#'>
+							<a href='https://youtube.com'>
 								<FontAwesomeIcon icon={faYoutube} className='i' />
 							</a>
 						</div>

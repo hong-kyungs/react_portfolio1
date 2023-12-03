@@ -193,7 +193,8 @@ function Location() {
 							placeholder='Message'
 							cols='30'
 							rows='1'
-							ref={textarea}></textarea>
+							ref={textarea}
+						></textarea>
 						<div className='info'>
 							<input
 								type='text'
@@ -235,13 +236,13 @@ function Location() {
 						<div className='email'>infoSE@bangolufsen.com</div>
 					</div>
 					<div className='sns'>
-						<a href='#'>
+						<a href='https://facebook.com'>
 							<FontAwesomeIcon icon={faFacebookF} className='i' />
 						</a>
-						<a href='#'>
+						<a href='https://twitter.com'>
 							<FontAwesomeIcon icon={faTwitter} className='i' />
 						</a>
-						<a href='#'>
+						<a href='https://instagram.com'>
 							<FontAwesomeIcon icon={faInstagram} className='i' />
 						</a>
 					</div>

@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 function Main() {
 	const main = useRef(null);
 	const pos = useRef([]);
-	const [Index, setIndex] = useState(0);
+	const [Index, setIndex] = useState(null);
 	let secs = null;
 	const [Scrolled, setScrolled] = useState(0);
 

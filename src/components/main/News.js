@@ -30,16 +30,21 @@ function News({ Scrolled, start }) {
 							<Link to='/Department'>VIEW MORE</Link>
 						</div>
 						<div className='pic'>
-							<img src={process.env.PUBLIC_URL + '/img/' + member.pic} />
+							<img
+								src={process.env.PUBLIC_URL + '/img/' + member.pic}
+								alt='여자멤버사진'
+							/>
 						</div>
 						<p
 							className='deco'
-							style={{ transform: `translateY(${position}px)` }}>
+							style={{ transform: `translateY(${position}px)` }}
+						>
 							BANG &
 						</p>
 						<p
 							className='deco2'
-							style={{ transform: `translateY(${position * -1}px)` }}>
+							style={{ transform: `translateY(${position * -1}px)` }}
+						>
 							OLUFSEN
 						</p>
 					</article>
