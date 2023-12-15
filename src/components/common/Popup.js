@@ -26,12 +26,14 @@ const Popup = forwardRef((props, ref) => {
 						opacity: 0,
 						scale: 0,
 						transition: { duration: 0.5, delay: 0.5 },
-					}}>
+					}}
+				>
 					<motion.div
 						className='con'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.5 } }}
-						exit={{ opacity: 0, transition: { duration: 0.5 } }}>
+						exit={{ opacity: 0, transition: { duration: 0.5 } }}
+					>
 						{props.children}
 					</motion.div>
 					<motion.span
@@ -43,7 +45,8 @@ const Popup = forwardRef((props, ref) => {
 							opacity: 1,
 							transition: { duration: 0.5, delay: 0.5 },
 						}}
-						exit={{ opacity: 0, x: 100, transition: { duration: 0.5 } }}>
+						exit={{ opacity: 0, x: 100, transition: { duration: 0.5 } }}
+					>
 						close
 					</motion.span>
 				</motion.aside>
