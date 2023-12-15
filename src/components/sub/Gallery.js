@@ -83,6 +83,7 @@ function Gallery() {
 					<img
 						className='loading'
 						src={`${process.env.PUBLIC_URL}/img/loading.gif`}
+						alt='로딩바'
 					/>
 				)}
 				<span className='typo'>SPECIAL</span>
@@ -117,7 +118,8 @@ function Gallery() {
 											onClick={() => {
 												pop.current.open();
 												setIndex(idx);
-											}}>
+											}}
+										>
 											<img
 												src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
 												alt={item.title}

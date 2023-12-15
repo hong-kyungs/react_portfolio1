@@ -9,6 +9,7 @@ import {
 
 function Location() {
 	const { kakao } = window;
+	//지도 호출에 필요한 값 정리
 	const info = [
 		{
 			title: 'Hanam',
@@ -78,6 +79,7 @@ function Location() {
 	}, [Traffic]);
 
 	useEffect(() => {
+		//새로운 지도 호출시 이전 지도가 겹쳐보이는 현상을 방지
 		container.current.innerHTML = '';
 
 		const map_instance = new kakao.maps.Map(container.current, option);
